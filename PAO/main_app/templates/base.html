@@ -1,13 +1,32 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAO Bahrain</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAO Bahrain</title>
 
-</body>
+    {% comment %} CSS LINK GOES HERE {% endcomment %}
+  </head>
+
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="{% url 'home' %}" class="brand-logo">PAO</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'login' %}">Log In</a>
+          <a href="{% url 'signup' %}">Sign Up</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
+      <div class="right">
+        All Rights Reserved, &copy; 2026 Post-Arrival Orientation for Domestic Workers in the Kingdom of Bahrain
+      </div>
+    </footer>
+  </body>
 </html>
