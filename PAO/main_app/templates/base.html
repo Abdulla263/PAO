@@ -8,7 +8,7 @@
     <title>PAO Bahrain</title>
 
     {% comment %} CSS LINK GOES HERE {% endcomment %}
-
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
   </head>
 
   <body>
@@ -16,6 +16,8 @@
       <nav>
         <div class="nav-wrapper">
           <a href="{% url 'home' %}" class="brand-logo">PAO</a>
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+
           <a href="{% url 'about' %}">About</a>
           <a href="{% url 'login' %}">Log In</a>
           <a href="{% url 'signup' %}">Sign Up</a>
