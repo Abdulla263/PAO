@@ -13,16 +13,16 @@ To address these challenges, the Post-Arrival Orientation (PAO) programme provid
 Our e-learning platform bridges the gap between domestic workers and crucial information, ensuring accessibility at all times.
 
 ## Features
-•	A Home page with basic information and details about the platform.
-•	A sign-up and log-in feature which takes the user to their dashboard.
-•	User dashboard will include all their basic information as well as their total progress.
-•	 A user can update their profile information, including their profile picture.
-•	A user can browse different educational modules and take a quiz. Once the answers are submitted the results are stored and displayed.
-•	A user can retake any of the quizzes any time.
-•	In the dashboard, a user can see their progress per module as well as total overall progress.
-•	A user can export a PDF of their dashboard which includes their profile information and their quiz results.
-•	The website will also have a dedicated AI help bot that can guide the user with their questions.
-•	Additionally, the website will include an About page and a dedicated Helpline page with all the important numbers and emergency lines.
+-	A Home page with basic information and details about the platform.
+-	A sign-up and log-in feature which takes the user to their dashboard.
+-	User dashboard will include all their basic information as well as their total progress.
+- A user can update their profile information, including their profile picture.
+-	A user can browse different educational modules and take a quiz. Once the answers are submitted the results are stored and displayed.
+-	A user can retake any of the quizzes any time.
+-	In the dashboard, a user can see their progress per module as well as total overall progress.
+-	A user can export a PDF of their dashboard which includes their profile information and their quiz results.
+-	The website will also have a dedicated AI help bot that can guide the user with their questions.
+-	Additionally, the website will include an About page and a dedicated Helpline page with all the important numbers and emergency lines.
 
 
 ### MORE TO COME
