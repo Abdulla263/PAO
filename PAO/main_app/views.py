@@ -35,4 +35,4 @@ def dashboard(request):
 
 def modules(request):
     modules = Module.objects.all().order_by("id")
-    return render(request, 'modules/all_modules.html', {"modules": modules})
+    return render(request, 'modules/modules.html', {"modules": modules})
