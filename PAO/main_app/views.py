@@ -2,6 +2,9 @@ from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
+from .models import Module
+
+
 # Create your views here.
 def signup(request):
     error_message = ''
@@ -29,3 +32,7 @@ def about(request):
 
 def dashboard(request):
     return render(request, 'dash/dashboard.html')
+
+def modules(request):
+    modules = Module.objects.all().order_by("id")
+    return render(request, 'modules/modules.html', {"modules": modules})

@@ -1,0 +1,28 @@
+.navbar-fixed {
+    background-color: #17325A;
+    padding: 10px;
+    color: white;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.module-card {
+    background-color: #DDD6CA;
+    padding: 1px 20px;
+    color: #17325A;
+    border-radius: 10px;
+}
+
+p {
+    color: black
+}
