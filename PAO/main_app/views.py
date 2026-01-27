@@ -2,6 +2,8 @@ from django.shortcuts import render , redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.contrib.auth import login
+from .models import Module
+
 
 # Create your views here.
 def signup(request):
@@ -27,3 +29,7 @@ def about(request):
 
 def dashboard(request):
     return render(request, 'dash/dashboard.html')
+
+def modules(request):
+    modules = Module.objects.all().order_by("id")
+    return render(request, 'modules/all_modules.html', {"modules": modules})
