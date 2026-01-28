@@ -36,3 +36,10 @@ def dashboard(request):
 def modules(request):
     modules = Module.objects.all().order_by("id")
     return render(request, 'modules/modules.html', {"modules": modules})
+
+def module_detail(request, module_id):
+    module = Module.objects.get(id=module_id)
+    module_path = f'modules/module{module_id}.html'
+    return render(request, module_path, {"module": module})
+
+
