@@ -26,3 +26,7 @@ nav a {
 p {
     color: black
 }
+
+a {
+    text-decoration: none;
+}
