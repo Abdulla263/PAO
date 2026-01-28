@@ -4,7 +4,9 @@
 <h1>Modules</h1>
 {% for module in modules %}
   <div class="module-card">
-    <h2>{{ module.title }}</h2>
+    <a href="{% url 'detail' module.id %}">
+    <h2><b>Module {{ module.id }}</b>
+{{ module.title }}</h2></a>
     <p>{{ module.description }}</p>
   </div>
   <br>
