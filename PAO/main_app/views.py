@@ -43,3 +43,6 @@ def module_detail(request, module_id):
     return render(request, module_path, {"module": module})
 
 
+def profile(request):
+    return render(request, 'dash/profile.html')
+
