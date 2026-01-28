@@ -77,9 +77,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'PAO',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '37221100',
-        'USER': 'zahidbalooshi',
+        'USER': 'postgres',
+        'PASSWORD': '37221100',
+        # 'USER': 'zahidbalooshi',
         'PORT':'5432'
     }
 }
@@ -122,3 +122,4 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = "/about/"
+LOGOUT_REDIRECT_URL = "/"
