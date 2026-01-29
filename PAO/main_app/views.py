@@ -44,4 +44,4 @@ def module_detail(request, module_id):
 
 def quiz(request, module_id):
     module = Module.objects.get(id=module_id)
-    
+

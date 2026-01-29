@@ -5,8 +5,7 @@
 {% for module in modules %}
   <div class="module-card">
     <a href="{% url 'detail' module.id %}">
-    <h2><b>Module {{ module.id }}:</b>
-    {{ module.title }}</h2></a>
+    <h2>Module {{ module.id }}: <b>{{ module.title }}</b></h2></a>
     <p>{{ module.description }}</p>
   </div>
   <br>
