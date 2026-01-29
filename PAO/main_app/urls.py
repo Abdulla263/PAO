@@ -10,5 +10,6 @@ urlpatterns = [
     path('modules/', views.modules, name='modules'),
     path('modules/<int:module_id>/', views.module_detail, name='detail'),
     path('modules/quiz/<int:module_id>/', views.quiz, name='quiz'),
+    path('accounts/profile/', views.profile, name='profile')
 
 ]
