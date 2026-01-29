@@ -39,7 +39,7 @@ class Question(models.Model):
     text = models.CharField()
 
     def __str__(self):
-        return f"{self.text}"
+        return f"Module {self.module.id}: {self.text}"
 
 
 class Answer(models.Model):

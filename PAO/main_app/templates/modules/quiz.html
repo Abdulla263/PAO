@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Quiz for Module {{ module.id }}: {{ module.title }}</h1>
+    {% for question in questions %}
+      <div>
+        <hr>
+        <p><b>{{ question.text }}</b></p>
+
+        {% for answer in question.answer_set.all %}
+        <p>{{ answer.text }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+{% endblock %}
