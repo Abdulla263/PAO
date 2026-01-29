@@ -27,11 +27,15 @@ p {
     color: black
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  padding: 0 15px;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0 15px;
 }

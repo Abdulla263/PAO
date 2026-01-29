@@ -1,8 +1,8 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
-from .models import Module
+from .models import Module, Quiz
 
 
 # Create your views here.
@@ -42,6 +42,8 @@ def module_detail(request, module_id):
     module_path = f'modules/module{module_id}.html'
     return render(request, module_path, {"module": module})
 
+def quiz(request, module_id):
+    module = Module.objects.get(id=module_id)
 
 def profile(request):
     return render(request, 'dash/profile.html')

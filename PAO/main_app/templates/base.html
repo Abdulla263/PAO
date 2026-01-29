@@ -21,14 +21,14 @@
           <a href="{% url 'profile' %}">Profile</a>
           <a href="{% url 'modules' %}">Modules</a>
           <a href="{% url 'dashboard' %}">Dashboard</a>
-           <form method="post" action="{% url 'logout' %}">
+          <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
               <button type="submit">Logout</button>
            </form>
 
 
-           {% else %}
-           <a href="{% url 'modules' %}">Modules</a>
+          {% else %}
+          <a href="{% url 'modules' %}">Modules</a>
           <a href="{% url 'dashboard' %}">Dashboard</a>
           <a href="{% url 'login' %}">Log In</a>
           <a href="{% url 'signup' %}">Sign Up</a>
