@@ -23,8 +23,8 @@
           <a href="{% url 'dashboard' %}">Dashboard</a>
           <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
-              <button type="submit">Logout</button>
-           </form>
+              <button class="btn-nav-temp" type="submit">Logout</button>
+          </form>
 
 
           {% else %}
