@@ -39,12 +39,11 @@ def modules(request):
 
 def module_detail(request, module_id):
     module = Module.objects.get(id=module_id)
-    module_path = f'modules/module{module_id}.html'
-    return render(request, module_path, {"module": module})
+    return render(request, f'modules/module{module_id}.html', {"module": module})
 
 def quiz(request, module_id):
     module = Module.objects.get(id=module_id)
-    questions = Question.objects.filter(module=module)
+    questions = Question.objects.filter(module=module).order_by("?")
     return render(request, 'modules/quiz.html', {"module":module, "questions":questions})
 
 def profile(request):
