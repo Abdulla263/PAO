@@ -16,6 +16,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -72,6 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "PAO.wsgi.application"
+print(os.getenv("DB_PORT"))
 
 
 # Database

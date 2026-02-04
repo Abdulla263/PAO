@@ -2,15 +2,33 @@
 
 {% block content %}
 <h1>Quiz for Module {{ module.id }}: {{ module.title }}</h1>
-    {% for question in questions %}
-      <div>
-        <hr>
-        <p><b>{{ question.text }}</b></p>
 
-        {% for answer in question.answer_set.all %}
-        <p>{{ answer.text }}</p>
-        {% endfor %}
-      </div>
-    {% endfor %}
+{% if user.is_staff %}
+  <button>Edit Questions</button>
+  {% endif %}
 
+  <form action="" method="post">
+    {% csrf_token %}
+      {% for question in questions %}
+        <div>
+          <hr>
+            <p><b>{{ forloop.counter }}. {{ question.text }}</b></p>
+            {% for answer in question.answers.all %}
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="question_{{ question.id }}"
+                    value="{{ answer.id }}"
+                    required
+                    >
+                    {{ answer.text }}
+                <label>
+              </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <hr>
+      <button type="submit">Submit Answers</button>
+  </form>
 {% endblock %}
