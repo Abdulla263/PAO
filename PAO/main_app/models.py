@@ -74,6 +74,21 @@ class Note(models.Model):
     title = models.CharField()
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    cpr = models.CharField(
+        max_length=9,
+        validators=[RegexValidator(regex=r'^\d{9}$', message='CPR must be exactly 9 digits')]
+    )
+    phone = models.CharField(
+        max_length=20,
+        validators=[RegexValidator(regex=r'^\d+$', message='Phone number must contain digits only')],
+        blank=True
+    ),
+    nationality = models.CharField(max_length=10, choices=NATIONALITY)
+
+    def __str__(self):
+        return self.user.username
 
     def __str__(self):
         return f"{self.user}'s note at {self.timestamp}"

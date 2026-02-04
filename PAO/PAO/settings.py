@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import os
 from dotenv import load_dotenv
@@ -76,8 +80,10 @@ TEMPLATES = [
 WSGI_APPLICATION = "PAO.wsgi.application"
 print(os.getenv("DB_PORT"))
 
+
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
 
 DATABASES = {
     "default": {
@@ -88,6 +94,17 @@ DATABASES = {
         "PORT": os.getenv("DB_PORT"),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME':'PAO',
+#         'USER': 'postgres',
+#         'PASSWORD': '37221100',
+#         # 'USER': 'zahidbalooshi',
+#         'PORT':'5432'
+#     }
+# }
 
 
 # Password validation
