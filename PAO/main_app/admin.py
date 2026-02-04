@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Module,Profile, Quiz, Question, Answer
+from .models import Module, Profile, Quiz, Question, Answer, Note
 
 
 class AnswerInLine(admin.TabularInline):
@@ -16,5 +16,6 @@ admin.site.register(Quiz)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
 admin.site.register(Profile)
+admin.site.register(Note)
 
 

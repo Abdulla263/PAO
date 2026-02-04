@@ -17,20 +17,20 @@ NATIONALITY = [
 ]
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-cpr = models.CharField(
-        max_length=9,
-        unique=True,
-        validators=[RegexValidator(regex=r'^\d{9}$',message='CPR must be exactly 9 digits')])
-phone = models.CharField(
-        max_length=20,
-        validators=[RegexValidator(regex=r'^\d+$',message='Phone number must contain digits only')],blank=True)
-image = models.ImageField(upload_to='main_app/static/uploads/', default='')
-nationality = models.CharField(max_length=10,choices=NATIONALITY)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+# cpr = models.CharField(
+#         max_length=9,
+#         unique=True,
+#         validators=[RegexValidator(regex=r'^\d{9}$',message='CPR must be exactly 9 digits')])
+# phone = models.CharField(
+#         max_length=20,
+#         validators=[RegexValidator(regex=r'^\d+$',message='Phone number must contain digits only')],blank=True)
+# image = models.ImageField(upload_to='main_app/static/uploads/', default='')
+# nationality = models.CharField(max_length=10,choices=NATIONALITY)
 
-def __str__(self):
-        return self.user.username
+# def __str__(self):
+#         return self.user.username
 
 
 
@@ -71,24 +71,28 @@ class Answer(models.Model):
 
 class Note(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField()
+    title = models.CharField(max_length=200)
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user}'s note at {self.timestamp}"
+
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     cpr = models.CharField(
         max_length=9,
-        validators=[RegexValidator(regex=r'^\d{9}$', message='CPR must be exactly 9 digits')]
+        validators=[RegexValidator(regex=r'^\d{9}$', message='CPR must be exactly 9 digits')],
+        null=True
     )
     phone = models.CharField(
         max_length=20,
         validators=[RegexValidator(regex=r'^\d+$', message='Phone number must contain digits only')],
         blank=True
-    ),
-    nationality = models.CharField(max_length=10, choices=NATIONALITY)
+    )
+    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
 
     def __str__(self):
         return self.user.username
-
-    def __str__(self):
-        return f"{self.user}'s note at {self.timestamp}"
