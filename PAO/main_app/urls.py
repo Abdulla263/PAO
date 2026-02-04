@@ -9,8 +9,10 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('modules/', views.modules, name='modules'),
     path('modules/<int:module_id>/', views.module_detail, name='detail'),
+
     path('modules/quiz/<int:module_id>/', views.quiz, name='quiz'),
+    path('module/quiz/results/<int:quiz_id>/', views.quiz_results, name='quiz_results'),
+
     path('accounts/profile/', views.profile, name='profile'),
     path('accounts/profile/edit/', views.ProfileEdit.as_view(), name='ProfileEdit')
-
 ]
