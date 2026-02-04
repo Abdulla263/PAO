@@ -15,13 +15,15 @@
             <p><b>{{ forloop.counter }}. {{ question.text }}</b></p>
             {% for answer in question.answers.all %}
               <div>
-                <input
-                  type="radio"
-                  name="question_{{ question.id }}"
-                  value="{{ answer.id }}"
-                  required
-                  >
-                  {{ answer.text }}
+                <label>
+                  <input
+                    type="radio"
+                    name="question_{{ question.id }}"
+                    value="{{ answer.id }}"
+                    required
+                    >
+                    {{ answer.text }}
+                <label>
               </div>
           {% endfor %}
         </div>

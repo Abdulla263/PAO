@@ -44,6 +44,10 @@ def module_detail(request, module_id):
 def quiz(request, module_id):
     module = Module.objects.get(id=module_id)
     questions = Question.objects.filter(module=module).order_by("?")
+
+    if request.method == "post":
+        score = 0
+
     return render(request, 'modules/quiz.html', {"module":module, "questions":questions})
 
 def profile(request):

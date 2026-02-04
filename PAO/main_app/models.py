@@ -45,14 +45,15 @@ class Module(models.Model):
 class Quiz(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.module.id}. {self.module.title} quiz by { self.user.username }"
+        return f"Module {self.module.id} quiz by { self.user.username } on { self.timestamp }"
 
 
 class Question(models.Model):
-    module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name="question")
     text = models.CharField()
 
     def __str__(self):
