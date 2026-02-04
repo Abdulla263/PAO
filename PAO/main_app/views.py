@@ -45,14 +45,53 @@ def module_detail(request, module_id):
     module = Module.objects.get(id=module_id)
     return render(request, f'modules/module{module_id}.html', {"module": module})
 
+
 def quiz(request, module_id):
     module = Module.objects.get(id=module_id)
     questions = Question.objects.filter(module=module).order_by("?")
 
-    if request.method == "post":
+    if request.method == "POST":
         score = 0
+        results = []
+
+        for question in questions:
+            selected_answer_id = request.POST.get(f"question_{question.id}")
+            selected_answer = Answer.objects.get(id=selected_answer_id)
+            correct_answer = question.answers.get(is_correct=True)
+            is_correct = selected_answer == correct_answer
+            if is_correct:
+                score = score+1
+
+            results.append({
+                "question": question,
+                "selected": selected_answer,
+                "correct": correct_answer,
+                "is_correct": is_correct,
+            })
+
+        quiz_attempt = Quiz.objects.create(
+            user=request.user,
+            module=module,
+            score=score,
+            )
+        print(results)
+        return redirect("quiz_results", quiz_id=quiz_attempt.id)
 
     return render(request, 'modules/quiz.html', {"module":module, "questions":questions})
+
+
+def quiz_results(request, quiz_id):
+    quiz = Quiz.objects.get(id=quiz_id)
+    module = quiz.module
+    total = module.question.count()
+
+    return render(request, 'modules/quiz_results.html', {
+        "module": module,
+        "quiz": quiz,
+        "total": total,
+        })
+
+
 
 def profile(request):
     return render(request, 'dash/profile.html')
