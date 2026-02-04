@@ -5,4 +5,11 @@
 <h1>Profile</h1>
 <p>Professional File</p>
 <h2>Welcome, {{ user.username }}</h2>
+<h3>My CPR number: {{user.profile.cpr}}</h3>
+<h3> Nationality: {{user.profile.nationality}}</h3>
+<form  action="{% url 'ProfileEdit' %}" method="post" >
+              {% csrf_token %}
+              <button type="submit">Edit Profile</button>
+           </form>
 {% endblock %}
+

@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm
-from .models import Module, Quiz, Question, Answer
+from django.urls import reverse , reverse_lazy
+from .forms import CustomUserCreationForm , ProfileForm
+from django.views.generic.edit import UpdateView
+from .models import Module, Profile, Quiz, Question, Answer
+
+
 
 
 # Create your views here.
@@ -49,4 +53,11 @@ def quiz(request, module_id):
 
 def profile(request):
     return render(request, 'dash/profile.html')
+
+class ProfileEdit(UpdateView):
+    model = Profile
+    fields= ['cpr','nationality']
+    success_url = reverse_lazy("profile")
+    def get_object(self, queryset=None):
+        return Profile.objects.get(user=self.request.user)
 
