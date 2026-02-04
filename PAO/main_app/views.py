@@ -59,8 +59,12 @@ def profile(request):
 
 class ProfileEdit(UpdateView):
     model = Profile
-    fields= ['cpr','nationality']
-    success_url = reverse_lazy("profile")
+    fields= ['cpr','phone','nationality']
     def get_object(self, queryset=None):
         return Profile.objects.get(user=self.request.user)
+
+    def get_success_url(self):
+        return '/accounts/profile/'
+
+
 

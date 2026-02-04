@@ -4,10 +4,9 @@
 {% block content %}
 <h2>Edit Profile</h2>
 
-<form method="POST" action = {%url 'profile' %} enctype="multipart/form-data">
+<form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-
   <button type="submit">Save Changes</button>
 </form>
 {% endblock %}

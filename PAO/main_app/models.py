@@ -94,5 +94,6 @@ class Profile(models.Model):
     )
     nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
 
+
     def __str__(self):
         return self.user.username
