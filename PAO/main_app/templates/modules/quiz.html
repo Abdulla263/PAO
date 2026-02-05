@@ -3,15 +3,17 @@
 {% block content %}
 <h1>Quiz for Module {{ module.id }}: {{ module.title }}</h1>
 
-{% if user.is_staff %}
-  <button>Edit Questions</button>
+{% for question in questions %}
+<hr>
+
+  {% if user.is_staff %}
+    <a href="{% url 'question_edit' question.id %}">Edit</a>
+    <a href="{% url 'question_delete' question.id %}">Delete</a>
   {% endif %}
 
   <form action="" method="post">
     {% csrf_token %}
-      {% for question in questions %}
         <div>
-          <hr>
             <p><b>{{ forloop.counter }}. {{ question.text }}</b></p>
             {% for answer in question.answers.all %}
               <div>
