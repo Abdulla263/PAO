@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.urls import reverse , reverse_lazy
 from .forms import CustomUserCreationForm , ProfileForm
 from django.views.generic.edit import UpdateView
-from .models import Module, Profile, Quiz, Question, Answer
+from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer
 
 
 
@@ -52,29 +52,32 @@ def quiz(request, module_id):
 
     if request.method == "POST":
         score = 0
-        results = []
+
+        quiz_attempt = Quiz.objects.create(
+            user=request.user,
+            module=module,
+            score=0,
+            )
 
         for question in questions:
             selected_answer_id = request.POST.get(f"question_{question.id}")
             selected_answer = Answer.objects.get(id=selected_answer_id)
             correct_answer = question.answers.get(is_correct=True)
+
             is_correct = selected_answer == correct_answer
             if is_correct:
                 score = score+1
 
-            results.append({
-                "question": question,
-                "selected": selected_answer,
-                "correct": correct_answer,
-                "is_correct": is_correct,
-            })
-
-        quiz_attempt = Quiz.objects.create(
-            user=request.user,
-            module=module,
-            score=score,
+            QuizAnswer.objects.create(
+                quiz=quiz_attempt,
+                question=question,
+                selected_answer=selected_answer,
+                is_correct=is_correct
             )
-        print(results)
+
+        quiz_attempt.score = score
+        quiz_attempt.save()
+
         return redirect("quiz_results", quiz_id=quiz_attempt.id)
 
     return render(request, 'modules/quiz.html', {"module":module, "questions":questions})
@@ -82,12 +85,13 @@ def quiz(request, module_id):
 
 def quiz_results(request, quiz_id):
     quiz = Quiz.objects.get(id=quiz_id)
-    module = quiz.module
-    total = module.question.count()
+    responses = quiz.responses.select_related("question", "selected_answer")
+    total = responses.count()
 
     return render(request, 'modules/quiz_results.html', {
-        "module": module,
         "quiz": quiz,
+        "module": quiz.module,
+        "responses": responses,
         "total": total,
         })
 

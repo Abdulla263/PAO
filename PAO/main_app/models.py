@@ -70,13 +70,13 @@ class Quiz(models.Model):
 
 
 class QuizAnswer(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="answers")
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="responses")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     selected_answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
     is_correct = models.BooleanField()
 
     def __str__(self):
-        return f"{self.quiz.user} | Q.{self.question.id} {'✅' if self.is_correct else '❌'}"
+        return f"{self.quiz.user} | Module {self.quiz.module.id}: Q.{self.question.id} {'✅' if self.is_correct else '❌'} | {self.quiz.timestamp}"
 
 
 class Note(models.Model):
