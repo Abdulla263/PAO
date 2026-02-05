@@ -6,4 +6,7 @@
   <h1>{{ module.title }}</h1>
   <p>{{ module.description }}</p>
 </div>
+<a href="{% url 'quiz' module.id %}">
+  <button>Test Your Knowledge</button>
+</a>
 {% endblock %}
