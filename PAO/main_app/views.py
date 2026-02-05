@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
-from django.urls import reverse , reverse_lazy
-from .forms import CustomUserCreationForm , ProfileForm
-from django.views.generic.edit import UpdateView
+from django.urls import reverse, reverse_lazy
+from .forms import CustomUserCreationForm, ProfileForm, QuestionForm, AnswerFormSet
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+
 from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer
 
 
 
-
 # Create your views here.
+
 def signup(request):
     error_message = ''
 
@@ -96,6 +99,30 @@ def quiz_results(request, quiz_id):
         })
 
 
+class QuestionUpdateView(UpdateView):
+    model = Question
+    form_class = QuestionForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["formset"] = AnswerFormSet(instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        formset = AnswerFormSet(self.request.POST, instance=self.object)
+        if formset.is_valid():
+            self.object = form.save()
+            formset.save()
+            return redirect("quiz", module_id=self.object.module.id)
+        return self.form_invalid(form)
+
+class QuestionDeleteView(DeleteView):
+    model = Question
+
+    def get_success_url(self):
+        return reverse_lazy("quiz", kwargs={"module_id": self.object.module.id})
+
+
 
 def profile(request):
     return render(request, 'dash/profile.html')
@@ -108,6 +135,4 @@ class ProfileEdit(UpdateView):
 
     def get_success_url(self):
         return '/accounts/profile/'
-
-
 

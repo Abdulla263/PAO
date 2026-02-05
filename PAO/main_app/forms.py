@@ -2,7 +2,8 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from .models import Question, Answer
+from django.forms import inlineformset_factory
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -25,3 +26,18 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ('user',)
+
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ["text"]
+
+
+AnswerFormSet = inlineformset_factory(
+    Question,
+    Answer,
+    fields=("text", "is_correct"),
+    extra=0,
+    can_delete=True
+)

@@ -13,6 +13,9 @@ urlpatterns = [
     path('modules/quiz/<int:module_id>/', views.quiz, name='quiz'),
     path('module/quiz/results/<int:quiz_id>/', views.quiz_results, name='quiz_results'),
 
+    path('module/questions/<int:pk>/edit/', views.QuestionUpdateView.as_view(), name='question_edit'),
+    path('module/questions/<int:pk>/delete/', views.QuestionDeleteView.as_view(), name='question_delete'),
+
     path('accounts/profile/', views.profile, name='profile'),
     path('accounts/profile/edit/', views.ProfileEdit.as_view(), name='ProfileEdit')
 ]

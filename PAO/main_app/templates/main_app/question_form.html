@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Question</h1>
+
+{% if user.is_staff %}
+  <form method="post">
+    {% csrf_token %}
+
+    <h3>Question</h3>
+    {{ form.as_p }}
+
+    <hr>
+
+    <h3>Answers</h3>
+    {{ formset.management_form }}
+
+    {% for answer_form in formset %}
+      <div>
+        {{ answer_form.as_table }}
+      </div>
+    {% endfor %}
+
+    <button type="submit">Save</button>
+  </form>
+
+  {% else %}
+  <h3>Only staff can access this page.</h3>
+{% endif %}
+{% endblock %}
