@@ -42,16 +42,6 @@ class Module(models.Model):
         return f"{self.title}"
 
 
-class Quiz(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    module = models.ForeignKey(Module, on_delete=models.CASCADE)
-    score = models.IntegerField(default=0)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Module {self.module.id} quiz by { self.user.username } on { self.timestamp }"
-
-
 class Question(models.Model):
     module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name="question")
     text = models.CharField()
@@ -67,6 +57,26 @@ class Answer(models.Model):
 
     def __str__(self):
         return f"{self.text}"
+
+
+class Quiz(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Module {self.module.id} quiz by { self.user.username } on { self.timestamp }"
+
+
+class QuizAnswer(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="responses")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    selected_answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
+    is_correct = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.quiz.user} | Module {self.quiz.module.id}: Q.{self.question.id} {'✅' if self.is_correct else '❌'} | {self.quiz.timestamp}"
 
 
 class Note(models.Model):
