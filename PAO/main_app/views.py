@@ -7,7 +7,7 @@ from .forms import CustomUserCreationForm, ProfileForm, QuestionForm, AnswerForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
-from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer
+from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer , Note
 
 
 
@@ -38,7 +38,14 @@ def about(request):
     return render(request, 'about.html')
 
 def dashboard(request):
-    return render(request, 'dash/dashboard.html')
+    if request.method == "POST":
+        title = request.POST.get("title")
+        text = request.POST.get("text")
+        if title and text:
+            Note.objects.create(user=request.user, title=title, text=text)
+            return redirect('dashboard')
+    notes = Note.objects.filter(user=request.user).order_by('-timestamp')
+    return render(request, 'dash/dashboard.html', {'notes': notes})
 
 def modules(request):
     modules = Module.objects.all().order_by("id")
@@ -139,3 +146,22 @@ class ProfileEdit(UpdateView):
     def get_success_url(self):
         return '/accounts/profile/'
 
+class CreateNote(CreateView):
+    model = Note
+    fields = ['title','text']
+    success_url = 'dashboard/'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+class UpdateNote(UpdateView):
+    model = Note
+    fields = ['title','text']
+    success_url = '/dashboard/'
+
+
+
+class DeleteNote(DeleteView):
+    model = Note
+    success_url = '/dashboard/'

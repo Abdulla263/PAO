@@ -28,7 +28,8 @@ class Profile(models.Model):
         validators=[RegexValidator(regex=r'^\d+$', message='Phone number must contain digits only')],
         blank=True
     )
-    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
+    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True),
+    image = models.ImageField(upload_to='main_app/static/uploads/', default='')
 
     def __str__(self):
         return self.user.username
