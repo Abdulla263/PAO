@@ -28,7 +28,7 @@ class Profile(models.Model):
         validators=[RegexValidator(regex=r'^\d+$', message='Phone number must contain digits only')],
         blank=True
     )
-    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True),
+    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
     image = models.ImageField(upload_to='main_app/static/uploads/', default='')
 
     def __str__(self):
@@ -45,7 +45,7 @@ class Module(models.Model):
 
 class Question(models.Model):
     module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name="question")
-    text = models.CharField()
+    text = models.TextField()
 
     def __str__(self):
         return f"Module {self.module.id}: {self.text}"
@@ -53,7 +53,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="answers")
-    text = models.CharField()
+    text = models.TextField()
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):

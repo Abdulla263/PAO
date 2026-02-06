@@ -2,12 +2,22 @@
 
 {% block content %}
 <h1>Quiz Results</h1>
+
 <hr>
 <h2>Module {{ module.id }}: {{ module.title }}</h2>
 <h3>by {{ quiz.user.username }} at {{ quiz.timestamp }} </h3>
 <h2>You scored {{ quiz.score }} out of {{ total }}. </h2>
 <h2>{{ percentage }}%</h2>
 
+<div class="quiz-nav">
+    <a href="{% url 'detail' module.id %}">
+        <button>⬅️ Back to Module</button>
+    </a>
+
+    <a href="{% url 'quiz' module.id %}">
+        <button>🔁 Retake Quiz</button>
+    </a>
+</div>
 <hr>
 <br>
 {% for response in responses %}
