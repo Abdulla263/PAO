@@ -1,12 +1,280 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Healthcare -->
+    <div class="topic-section">
+        <h3>Healthcare in Bahrain</h3>
+
+        <div class="important-note">
+            <p><strong>💡 Remember: Your employer must pay for your health care.</strong></p>
+        </div>
+
+        <h4>When You're Sick</h4>
+        <p>If you're sick, your employer must consider and respect your health needs. Here's what to do:</p>
+
+        <div class="health-steps">
+            <div class="step-item">
+                <p><strong>1. Tell Your Employer</strong></p>
+                <p>Inform your employer immediately if you feel unwell</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>2. Ask for Rest</strong></p>
+                <p>Request more time to rest and recover</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>3. See a Doctor</strong></p>
+                <p>Call a doctor at the health centre or visit a hospital</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Don't depend only on over-the-counter medicine, like Panadol. Always see a doctor for proper medical care.</strong></p>
+        </div>
+        <!-- Image: Doctor consultation or hospital -->
+    </div>
+
+    <!-- Topic 2: Women's Health -->
+    <div class="topic-section">
+        <h3>Women's Health</h3>
+
+        <h4>Menstrual Health</h4>
+        <p>Sanitary products like pads, pantyliners, and tampons can be found in most supermarkets.</p>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> If you need these products, you can purchase them at local supermarkets or ask your employer for assistance.</p>
+        </div>
+        <!-- Image: Sanitary products -->
+    </div>
+
+    <!-- Topic 3: Pregnancy -->
+    <div class="topic-section">
+        <h3>Pregnancy</h3>
+
+        <div class="critical-warning">
+            <p><strong>⚠️ IMPORTANT INFORMATION:</strong></p>
+            <p>If you are <strong>unmarried</strong> and get pregnant while working in Bahrain, you may risk losing your job and may not be able to continue working in the country. You won't get any notice from your employer.</p>
+        </div>
+        <!-- Image: Pregnancy/health symbol -->
+    </div>
+
+    <!-- Topic 4: Sexual Abuse and Assault -->
+    <div class="topic-section">
+        <h3>Protection from Sexual Abuse</h3>
+
+        <div class="support-section">
+            <p><strong>If you face sexual abuse, or any unwanted sexual encounter, or become pregnant by forced sexual encounter:</strong></p>
+
+            <div class="your-rights">
+                <p><strong>✓ You have the right to seek help</strong></p>
+                <p><strong>✓ You should report it immediately</strong></p>
+            </div>
+
+            <div class="emergency-contacts">
+                <p><strong>📞 Call for Help:</strong></p>
+                <ul>
+                    <li><strong>995</strong> - LMRA Helpline</li>
+                    <li><strong>999</strong> - Emergency Services</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="important-message">
+            <p><strong>💜 Remember: Sexual assault is NEVER your fault.</strong></p>
+        </div>
+
+        <h4>Shamsaha Support</h4>
+        <p>You can also get help from an organisation called <strong>Shamsaha</strong>:</p>
+        <ul>
+            <li><strong>English Hotline:</strong> +973 38447588 (24/7)</li>
+            <li><strong>Arabic Hotline:</strong> +973 66710901 (24/7)</li>
+            <li><strong>Website:</strong> <a href="https://shamsaha.org/" target="_blank">shamsaha.org</a></li>
+        </ul>
+
+        <div class="tip-box">
+            <p><strong>💡 Download the Shamsaha app</strong> on your mobile phone for easy access to support services.</p>
+        </div>
+        <!-- Image: Support/help symbol -->
+    </div>
+
+    <!-- Topic 5: Occupational Health and Safety -->
+    <div class="topic-section">
+        <h3>Occupational Health and Safety in the Workplace</h3>
+
+        <h4>Working with Bleaches and Cleaning Products</h4>
+
+        <div class="safety-guidelines">
+            <div class="guideline-item">
+                <p><strong>🧤 Wear Rubber Gloves</strong></p>
+                <p>Always wear rubber gloves which should be replaced regularly (your employer must provide these)</p>
+            </div>
+
+            <div class="guideline-item">
+                <p><strong>📖 Read Instructions</strong></p>
+                <p>Carefully read the instructions on cleaning products before using them</p>
+            </div>
+
+            <div class="guideline-item">
+                <p><strong>⚠️ Watch for Allergic Reactions</strong></p>
+                <p>If you have an allergic reaction, tell your employer immediately</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Never mix different cleaning products together, as this can create dangerous chemical reactions.</strong></p>
+        </div>
+        <!-- Image: Rubber gloves and cleaning products -->
+    </div>
+
+    <!-- Topic 6: Medical Issues -->
+    <div class="topic-section">
+        <h3>Dealing with Medical Issues</h3>
+
+        <div class="medical-steps">
+            <div class="step-item">
+                <p><strong>Step 1: Tell Your Employer</strong></p>
+                <p>If you feel sick, you must tell your employer right away</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 2: Call a Doctor</strong></p>
+                <p>Call a doctor at the health centre for professional medical advice</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 3: Seek Proper Treatment</strong></p>
+                <p>Don't depend only on over-the-counter medicine like Panadol - get proper medical care</p>
+            </div>
+        </div>
+
+        <div class="health-centres-info">
+            <p><strong>📍 Health Centres in Bahrain:</strong></p>
+            <p>There are many health centres throughout Bahrain including:</p>
+            <ul>
+                <li>A'Ali Health Center: +973 17648888</li>
+                <li>Al-Hoora Health Center: +973 17318888</li>
+                <li>Budaiya Health Center: +973 17698888</li>
+                <li>Hamad Town Health Center: +973 17418888</li>
+                <li>Isa Town Health Center: +973 17480888</li>
+                <li>Muharraq Health Center: +973 17460888</li>
+            </ul>
+            <p><em>See Module 7 for complete list of health centres</em></p>
+        </div>
+        <!-- Image: Hospital/health centre -->
+    </div>
+
+    <!-- Topic 7: Driving Safety -->
+    <div class="topic-section">
+        <h3>Driving Safety</h3>
+
+        <p>If you need to drive as part of your work, follow these important safety rules:</p>
+
+        <div class="driving-rules">
+            <div class="rule-item">
+                <p><strong>🚗 Drive Carefully</strong></p>
+                <p>Drive carefully at all times and stay alert</p>
+            </div>
+
+            <div class="rule-item">
+                <p><strong>🔒 Always Fasten Your Seatbelt</strong></p>
+                <p>Wear your seatbelt every time you're in a vehicle</p>
+            </div>
+
+            <div class="rule-item">
+                <p><strong>⚡ Pay Attention to Speed Limits</strong></p>
+                <p>Observe speed limit signs and don't exceed them</p>
+            </div>
+
+            <div class="rule-item">
+                <p><strong>📋 Follow Traffic Rules</strong></p>
+                <p>Obey all traffic signals, stop signs, and road regulations</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ Traffic violations can result in fines and legal consequences. Always drive safely and responsibly.</strong></p>
+        </div>
+        <!-- Image: Seatbelt, speed limit sign, stop sign -->
+    </div>
+
+    <!-- Topic 8: Household Work Safety -->
+    <div class="topic-section">
+        <h3>Safety During Household Work</h3>
+
+        <h4>Kitchen Safety</h4>
+
+        <div class="kitchen-safety">
+            <div class="safety-item">
+                <p><strong>🔪 Sharp Objects</strong></p>
+                <p>Be careful when using sharp objects or edges like knives, scissors, and broken glass</p>
+            </div>
+
+            <div class="safety-item">
+                <p><strong>🔥 Hot Surfaces</strong></p>
+                <p>Avoid touching hot surfaces and boiling water. Use oven mitts and potholders</p>
+            </div>
+
+            <div class="safety-item">
+                <p><strong>🧼 Hand Hygiene</strong></p>
+                <p>Wash your hands frequently and especially after handling raw meat and other food items</p>
+            </div>
+        </div>
+
+        <h4>General Household Safety Tips</h4>
+        <ul>
+            <li>Keep floors dry to prevent slipping</li>
+            <li>Store cleaning products safely away from children</li>
+            <li>Use ladders carefully when reaching high places</li>
+            <li>Unplug electrical appliances when not in use</li>
+            <li>Be careful when handling electrical items near water</li>
+        </ul>
+        <!-- Image: Kitchen safety items - knife, hot stove, handwashing -->
+    </div>
+
+    <!-- Topic 9: Emergency Situations -->
+    <div class="topic-section">
+        <h3>What to Do in Emergencies</h3>
+
+        <div class="emergency-numbers">
+            <div class="emergency-item">
+                <p><strong>🚨 999 - Emergency Services</strong></p>
+                <p>Call for ambulance, fire, or police in urgent situations</p>
+            </div>
+
+            <div class="emergency-item">
+                <p><strong>📞 995 - LMRA Helpline</strong></p>
+                <p>For workplace issues, abuse, or questions (24/7, 12 languages)</p>
+            </div>
+
+            <div class="emergency-item">
+                <p><strong>☎️ 80008008 - Police Hotline</strong></p>
+                <p>Non-emergency police contact</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ In case of injury:</strong></p>
+            <ul>
+                <li>Apply first aid if you can do so safely</li>
+                <li>Inform your employer immediately</li>
+                <li>Seek medical attention at a health centre or hospital</li>
+                <li>Your employer must cover all medical costs</li>
+            </ul>
+        </div>
+        <!-- Image: Emergency services vehicles -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}

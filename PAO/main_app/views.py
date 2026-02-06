@@ -90,13 +90,16 @@ def quiz_results(request, quiz_id):
     quiz = Quiz.objects.get(id=quiz_id)
     responses = quiz.responses.select_related("question", "selected_answer")
     total = responses.count()
+    percentage = int((quiz.score / total)*100)
 
     return render(request, 'modules/quiz_results.html', {
         "quiz": quiz,
         "module": quiz.module,
         "responses": responses,
         "total": total,
+        "percentage": percentage,
         })
+
 
 
 class QuestionUpdateView(UpdateView):

@@ -1,12 +1,222 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Contracts -->
+    <div class="topic-section">
+        <h3>Your Employment Contract</h3>
+
+        <h4>Tripartite Contract</h4>
+        <p>If you came to Bahrain through an employment office, make sure you have a <strong>tripartite contract</strong>. If you are recruited through an employment office, you must have a contract. If you don't, call <strong>995</strong>.</p>
+
+        <p>This is the official contract for domestic workers in Bahrain. It has <strong>three parts</strong>:</p>
+        <ul>
+            <li>The first two parts are signed by your employment office and employer</li>
+            <li>The third part is signed by you and your employer</li>
+        </ul>
+
+        <div class="important-note">
+            <p><strong>⚠️ Important:</strong> If you didn't come to Bahrain through an employment office or recruiter, you might not have a contract.</p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Make sure you understand your contract and keep a copy of it.</p>
+        </div>
+        <!-- Image: Sample contract document -->
+    </div>
+
+    <!-- Topic 2: What Must My Contract Include? -->
+    <div class="topic-section">
+        <h3>What Must My Contract Include?</h3>
+
+        <div class="contract-requirements">
+            <div class="requirement-item">
+                <p><strong>📋 The nature, type, and duration of the contract</strong></p>
+                <p>If for a definite period, this should be clearly stated.</p>
+            </div>
+
+            <div class="requirement-item">
+                <p><strong>👤 The employer's name and address</strong></p>
+                <p>The workplace address must be included.</p>
+            </div>
+
+            <div class="requirement-item">
+                <p><strong>🆔 The worker's information</strong></p>
+                <p>Your name, date of birth, qualifications, job or occupation, residential address, nationality, and necessary personal identification documents.</p>
+            </div>
+
+            <div class="requirement-item">
+                <p><strong>💰 Wage and benefits</strong></p>
+                <p>The wage agreed upon, method and time of payment, and all the benefits agreed upon.</p>
+            </div>
+        </div>
+        <!-- Image: Contract checklist -->
+    </div>
+
+    <!-- Topic 3: Contract Details -->
+    <div class="topic-section">
+        <h3>Understanding Your Contract Details</h3>
+
+        <p>Your contract should include information about:</p>
+
+        <h4>Workplace and Residence</h4>
+        <ul>
+            <li>Address of workplace (Area, Complex, Street/Road, Building, Apartment)</li>
+            <li>Number of levels, rooms, bedrooms, living rooms, kitchens, and bathrooms</li>
+            <li>Whether your residence will be separate from the workplace</li>
+        </ul>
+
+        <h4>Your Accommodation</h4>
+        <p>Your contract should specify if you will have:</p>
+        <ul>
+            <li>Separate room with separate bathroom</li>
+            <li>Separate room with common bathroom</li>
+            <li>Common room with separate bathroom</li>
+            <li>Common room with common bathroom</li>
+        </ul>
+        <p>If sharing, it should state how many people share the accommodation.</p>
+
+        <h4>Employer's Family Information</h4>
+        <p>Your contract should include details about:</p>
+        <ul>
+            <li>Total number of family members</li>
+            <li>Whether there are children under 12</li>
+            <li>Whether there are elderly people</li>
+            <li>Whether there are people with special needs or requiring special care</li>
+            <li>Whether there are other domestic workers living with the family</li>
+        </ul>
+        <!-- Image: House/accommodation illustration -->
+    </div>
+
+    <!-- Topic 4: Termination of Contract and Resignation -->
+    <div class="topic-section">
+        <h3>Termination of Contract and Resignation</h3>
+
+        <div class="important-note">
+            <p><strong>✅ You can resign even if you don't have a contract.</strong></p>
+        </div>
+
+        <h4>How to Resign - Step by Step</h4>
+
+        <div class="steps-container">
+            <div class="step">
+                <p><strong>Step 1:</strong> Write a resignation letter</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 2:</strong> Give the letter to your employer</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 3:</strong> Your employer confirms in writing that they received the resignation letter</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 4:</strong> Your employer signs a "No Objection Certificate" (NOC) to officially allow your resignation</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 5:</strong> Your employer pays for your flight back home</p>
+            </div>
+        </div>
+        <!-- Image: Resignation process flowchart -->
+    </div>
+
+    <!-- Topic 5: Changing Employer -->
+    <div class="topic-section">
+        <h3>Changing Your Employer</h3>
+
+        <p>If you want to change your employer, here are the steps to follow:</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <p><strong>Step 1:</strong> Write a resignation letter</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 2:</strong> Give the letter to your employer</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 3:</strong> Your employer confirms in writing that they received the resignation letter</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 4:</strong> Your employer signs a "No Objection Certificate" (NOC) to allow your resignation</p>
+            </div>
+
+            <div class="step">
+                <p><strong>Step 5:</strong> Your employer arranges for the change of employment through LMRA</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ Note:</strong> LMRA might allow your transfer without your employer's permission in certain situations.</p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Need advice?</strong> Call LMRA, your employment agency, or your embassy.</p>
+        </div>
+        <!-- Image: NOC certificate or LMRA logo -->
+    </div>
+
+    <!-- Topic 6: Notice Period -->
+    <div class="topic-section">
+        <h3>Notice Period Requirements</h3>
+
+        <div class="notice-rules">
+            <div class="rule-item">
+                <p><strong>📅 30 Days Notice</strong></p>
+                <p>If you want to resign, you must inform your employer at least <strong>30 days in advance in writing</strong>.</p>
+            </div>
+
+            <div class="rule-item">
+                <p><strong>💵 If you fail to give notice</strong></p>
+                <p>You must pay your employer compensation equal to <strong>one month of your wages</strong>.</p>
+            </div>
+
+            <div class="rule-item">
+                <p><strong>💵 If your employer fails to give you notice</strong></p>
+                <p>They must pay you compensation equal to <strong>one month of your wages</strong>.</p>
+            </div>
+        </div>
+        <!-- Image: Calendar showing 30 days -->
+    </div>
+
+    <!-- Topic 7: When You Don't Need to Give Notice -->
+    <div class="topic-section">
+        <h3>Exceptions: When You Don't Need to Give Notice</h3>
+
+        <p>You do <strong>NOT</strong> need to give notice if:</p>
+
+        <div class="exception-list">
+            <div class="exception-item">
+                <p><strong>1. Assault</strong></p>
+                <p>Your employer or anyone acting on their behalf assaults you (including verbal assault)</p>
+            </div>
+
+            <div class="exception-item">
+                <p><strong>2. Inappropriate Behavior</strong></p>
+                <p>Inappropriate behavior by your employer or anyone acting on their behalf</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ In these situations, you can resign immediately without giving 30 days notice.</strong></p>
+        </div>
+        <!-- Image: Warning/protection symbol -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}

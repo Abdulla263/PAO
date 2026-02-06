@@ -1,12 +1,384 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Recruitment Fees -->
+    <div class="topic-section">
+        <h3>Recruitment Fees</h3>
+
+        <div class="critical-info">
+            <p><strong>⚠️ IMPORTANT:</strong> You should <strong>NOT</strong> pay any costs for your recruitment, visa application, visa renewal, or visa cancellation.</p>
+        </div>
+
+        <p>These costs should be covered by:</p>
+        <ul>
+            <li>Your employer</li>
+            <li>The employment agency (if applicable)</li>
+        </ul>
+
+        <div class="action-box">
+            <p><strong>📞 If you are being asked to pay for any of these services, call 995 immediately.</strong></p>
+        </div>
+
+        <h4>Services You Should NOT Pay For:</h4>
+        <ul>
+            <li>Recruitment fees</li>
+            <li>Visa application</li>
+            <li>Visa renewal</li>
+            <li>Visa cancellation</li>
+            <li>Medical examinations required for work permit</li>
+            <li>Work permit fees</li>
+        </ul>
+        <!-- Image: No payment symbol / crossed out money -->
+    </div>
+
+    <!-- Topic 2: Annual Leave -->
+    <div class="topic-section">
+        <h3>Annual Leave</h3>
+
+        <div class="important-note">
+            <p><strong>✓ You are entitled to 2.5 days of paid leave per month.</strong></p>
+        </div>
+
+        <h4>How Annual Leave Works:</h4>
+        <p>After one year of work, you will have accumulated <strong>30 days of paid leave</strong>.</p>
+
+        <div class="leave-calculation">
+            <p><strong>Monthly Accumulation:</strong></p>
+            <div class="months-grid">
+                <div class="month-item">Month 1: 2.5 days</div>
+                <div class="month-item">Month 2: 2.5 days</div>
+                <div class="month-item">Month 3: 2.5 days</div>
+                <div class="month-item">Month 4: 2.5 days</div>
+                <div class="month-item">Month 5: 2.5 days</div>
+                <div class="month-item">Month 6: 2.5 days</div>
+                <div class="month-item">Month 7: 2.5 days</div>
+                <div class="month-item">Month 8: 2.5 days</div>
+                <div class="month-item">Month 9: 2.5 days</div>
+                <div class="month-item">Month 10: 2.5 days</div>
+                <div class="month-item">Month 11: 2.5 days</div>
+                <div class="month-item">Month 12: 2.5 days</div>
+            </div>
+            <p><strong>Total after 12 months: 30 days of paid leave</strong></p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Discuss your leave plans with your employer in advance so they can arrange coverage for your duties.</p>
+        </div>
+        <!-- Image: Calendar highlighting vacation days -->
+    </div>
+
+    <!-- Topic 3: Passport Retention -->
+    <div class="topic-section">
+        <h3>Passport and CPR Retention</h3>
+
+        <div class="critical-warning">
+            <p><strong>⚠️ IMPORTANT:</strong> Your employer is <strong>NOT allowed</strong> to take your passport or CPR (ID card).</p>
+        </div>
+
+        <h4>Your Rights:</h4>
+        <ul>
+            <li>You have the right to keep your passport at all times</li>
+            <li>You have the right to keep your CPR (ID card) at all times</li>
+            <li>These documents belong to YOU</li>
+        </ul>
+
+        <h4>What to Do If Your Employer Takes Your Passport or CPR:</h4>
+        <div class="action-steps">
+            <div class="step-item">
+                <p><strong>Step 1:</strong> Ask your employer to return your documents</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 2:</strong> If they refuse, call <strong>995</strong> immediately</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>📞 LMRA (995) can help you get your passport and CPR back.</strong></p>
+        </div>
+        <!-- Image: Passport and ID card with protection symbol -->
+    </div>
+
+    <!-- Topic 4: Protection from Abuse -->
+    <div class="topic-section">
+        <h3>Your Right to Live Without Abuse or Harassment</h3>
+
+        <div class="rights-statement">
+            <p><strong>✓ You have the right to live without any abuse or harassment.</strong></p>
+        </div>
+
+        <h4>Types of Abuse Include:</h4>
+        <ul>
+            <li><strong>Physical abuse:</strong> Hitting, pushing, slapping, or any physical violence</li>
+            <li><strong>Verbal abuse:</strong> Shouting, insults, threats, or demeaning language</li>
+            <li><strong>Emotional abuse:</strong> Intimidation, isolation, or psychological harm</li>
+            <li><strong>Sexual abuse:</strong> Any unwanted sexual contact or harassment</li>
+            <li><strong>Economic abuse:</strong> Withholding wages or controlling your money</li>
+        </ul>
+
+        <div class="action-box">
+            <p><strong>📞 You can report abuse by calling:</strong></p>
+            <ul>
+                <li><strong>999</strong> - Emergency services (for immediate danger)</li>
+                <li><strong>995</strong> - LMRA (for workplace issues and support)</li>
+            </ul>
+        </div>
+
+        <div class="important-message">
+            <p><strong>💜 Remember: Abuse is NEVER acceptable. You have the right to be treated with dignity and respect.</strong></p>
+        </div>
+        <!-- Image: Stop abuse symbol / support hands -->
+    </div>
+
+    <!-- Topic 5: Unfair Dismissal -->
+    <div class="topic-section">
+        <h3>Unfair Dismissal</h3>
+
+        <p>Your contract <strong>cannot</strong> be terminated because of:</p>
+
+        <div class="unfair-reasons">
+            <div class="reason-item">
+                <p>❌ Your sex (gender)</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Your color (race)</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Your religion</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Your ideology (beliefs)</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Your marital status</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Your family responsibilities</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Pregnancy</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Delivery of a child</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Breastfeeding</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ A complaint you made against your employer</p>
+            </div>
+            <div class="reason-item">
+                <p>❌ Using your right to take leave</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ If you believe you were dismissed unfairly:</strong></p>
+            <p>You may be entitled to compensation through a labour court. Call <strong>995</strong> for assistance and guidance on how to file a complaint.</p>
+        </div>
+        <!-- Image: Justice/equality symbol -->
+    </div>
+
+    <!-- Topic 6: Domestic Workers' Obligations -->
+    <div class="topic-section">
+        <h3>Your Obligations as a Domestic Worker</h3>
+
+        <p>As a domestic worker, you have certain responsibilities:</p>
+
+        <div class="obligations-list">
+            <div class="obligation-item">
+                <p><strong>✓ Work Well and Perform Your Duties</strong></p>
+                <p>Complete your assigned tasks to the best of your ability</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>✓ Respect Your Employer's Privacy</strong></p>
+                <p>Maintain confidentiality about your employer's personal matters</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>✓ Take Care of Your Employer's Property</strong></p>
+                <p>Don't damage your employer's items intentionally</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>✓ Maintain Professional Conduct</strong></p>
+                <p>Do not assault your employer or coworkers</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>✓ Follow Workplace Rules</strong></p>
+                <p>Do not consume alcohol or drugs at work</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Consequences of Not Following These Rules:</strong></p>
+            <p>If you do not follow these rules, your employer can terminate your contract <strong>without notice</strong>, and you may <strong>not receive compensation</strong>.</p>
+        </div>
+
+        <div class="important-note">
+            <p><strong>💡 However:</strong> You have the right to quit your job any time you want by following the right processes with the LMRA. If you feel uncomfortable in your workplace, contact <strong>995</strong> for help. If you feel in immediate danger, contact <strong>999</strong> and go to the Expat Protection Centre.</p>
+        </div>
+        <!-- Image: Professional conduct illustration -->
+    </div>
+
+    <!-- Topic 7: Being Absent from Work -->
+    <div class="topic-section">
+        <h3>Rules About Being Absent from Work</h3>
+
+        <div class="critical-warning">
+            <p><strong>⚠️ ILLEGAL ABSENCES:</strong></p>
+            <p>It is illegal to be absent from work:</p>
+            <ul>
+                <li>For <strong>10 days continuously</strong> without a valid reason, OR</li>
+                <li>For <strong>20 days in a year</strong> without a valid reason</li>
+            </ul>
+        </div>
+
+        <h4>Consequences of Illegal Absence:</h4>
+        <p>If you leave without following the right processes, you risk:</p>
+
+        <div class="consequences-list">
+            <div class="consequence-item">
+                <p>⚠️ Breaking the law</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Having your residency permit cancelled</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Being arrested</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Being detained</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Being deported</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Receiving fines</p>
+            </div>
+            <div class="consequence-item">
+                <p>⚠️ Being banned from re-entering Bahrain</p>
+            </div>
+        </div>
+
+        <div class="appeal-info">
+            <p><strong>Right to Appeal:</strong></p>
+            <p>If you are accused of running away, you can appeal within <strong>30 days</strong> of being notified. Call <strong>995</strong> for more information on how to do this.</p>
+        </div>
+        <!-- Image: Warning sign / legal symbol -->
+    </div>
+
+    <!-- Topic 8: Beware of Scams -->
+    <div class="topic-section">
+        <h3>Beware of Scams</h3>
+
+        <div class="scam-warning">
+            <p><strong>⚠️ WARNING:</strong></p>
+            <p>Be careful of any calls or text messages encouraging you to run away for a higher salary or better working conditions. These are often <strong>scammers</strong> trying to trick you.</p>
+        </div>
+
+        <h4>What to Do:</h4>
+        <ul>
+            <li><strong>Do NOT respond</strong> to these messages</li>
+            <li><strong>Inform your employer</strong> about these scam attempts</li>
+            <li><strong>Delete</strong> suspicious messages</li>
+            <li><strong>Report</strong> to 995 if you're concerned</li>
+        </ul>
+
+        <div class="important-note">
+            <p><strong>💡 If you feel uncomfortable or unsafe:</strong></p>
+            <ul>
+                <li>Contact <strong>995</strong> for workplace issues</li>
+                <li>Contact <strong>999</strong> if you feel in immediate danger</li>
+            </ul>
+        </div>
+        <!-- Image: Scam warning / phone with suspicious message -->
+    </div>
+
+    <!-- Topic 9: Irregular Status -->
+    <div class="topic-section">
+        <h3>Understanding Irregular Status</h3>
+
+        <h4>What is Irregular Status?</h4>
+        <p>You have an irregular immigration status if:</p>
+
+        <div class="irregular-situations">
+            <div class="situation-item">
+                <p><strong>❌ Using a visit visa for work</strong></p>
+                <p>It is illegal to use a tourist/visit visa to work in Bahrain</p>
+            </div>
+
+            <div class="situation-item">
+                <p><strong>❌ Leaving without proper resignation</strong></p>
+                <p>If you leave your workplace without resigning and following LMRA's instructions, you could face problems</p>
+            </div>
+
+            <div class="situation-item">
+                <p><strong>❌ Staying after visa expires</strong></p>
+                <p>It is illegal to stay in Bahrain after your visa expires</p>
+            </div>
+        </div>
+        <!-- Image: Visa/passport with warning symbol -->
+    </div>
+
+    <!-- Topic 10: Risks of Breaking Immigration Rules -->
+    <div class="topic-section">
+        <h3>Risks of Breaking Immigration Rules</h3>
+
+        <p>The risks of breaking these rules could include:</p>
+
+        <div class="risks-grid">
+            <div class="risk-item">
+                <p><strong>⚠️ Exploitation</strong></p>
+                <p>Being taken advantage of or mistreated without legal protection</p>
+            </div>
+
+            <div class="risk-item">
+                <p><strong>⚠️ Residency Permit Cancellation</strong></p>
+                <p>Losing your legal right to stay in Bahrain</p>
+            </div>
+
+            <div class="risk-item">
+                <p><strong>⚠️ Arrest and Detention</strong></p>
+                <p>Being arrested and held by authorities</p>
+            </div>
+
+            <div class="risk-item">
+                <p><strong>⚠️ Fines</strong></p>
+                <p>Having to pay monetary penalties</p>
+            </div>
+
+            <div class="risk-item">
+                <p><strong>⚠️ Deportation</strong></p>
+                <p>Being forced to leave Bahrain</p>
+            </div>
+
+            <div class="risk-item">
+                <p><strong>⚠️ Re-entry Ban</strong></p>
+                <p>Being banned from returning to Bahrain in the future</p>
+            </div>
+        </div>
+
+        <div class="critical-message">
+            <p><strong>⚠️ IMPORTANT TO UNDERSTAND:</strong></p>
+            <p>When people are staying in Bahrain without legal status, it makes it <strong>difficult for them to ask for help</strong>. It is more likely that you will end up in a situation where you are exploited or treated badly.</p>
+            <p><strong>Always maintain your legal status and follow proper procedures when changing employment or leaving Bahrain.</strong></p>
+        </div>
+        <!-- Image: Legal protection / shield symbol -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}

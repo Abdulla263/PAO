@@ -1,12 +1,589 @@
-{% extends 'base.html' %}
+MODULE 7: YOUR SUPPORT - HTML CONTENT
+======================================
 
+{% extends 'base.html' %}
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Emergency Contact - 999 -->
+    <div class="topic-section">
+        <h3>Emergency Contact: 999</h3>
+
+        <div class="emergency-header">
+            <p><strong>🚨 YOU SHOULD CALL 999 IF YOU ARE IN AN EMERGENCY</strong></p>
+        </div>
+
+        <h4>When to Call 999:</h4>
+        <div class="emergency-situations">
+            <div class="situation-item">
+                <p><strong>🚑 When you need an ambulance</strong></p>
+                <p>Medical emergencies requiring immediate attention</p>
+            </div>
+
+            <div class="situation-item">
+                <p><strong>🔥 In case of a fire</strong></p>
+                <p>Fire emergencies at your workplace or home</p>
+            </div>
+
+            <div class="situation-item">
+                <p><strong>👮 When you need to contact the police</strong></p>
+                <p>Immediate danger, assault, or criminal activity</p>
+            </div>
+        </div>
+
+        <div class="additional-police">
+            <p><strong>Police Hotline (Non-Emergency):</strong> 80008008</p>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ 999 is for EMERGENCY situations only. For non-emergency workplace issues, call 995.</strong></p>
+        </div>
+        <!-- Image: Emergency services - ambulance, fire truck, police -->
+    </div>
+
+    <!-- Topic 2: LMRA Support - 995 -->
+    <div class="topic-section">
+        <h3>Labour Market Regulatory Authority (LMRA): 995</h3>
+
+        <div class="lmra-header">
+            <p><strong>📞 995 - Your Main Support Hotline</strong></p>
+        </div>
+
+        <h4>In What Situations Can You Call 995?</h4>
+        <div class="lmra-situations">
+            <div class="situation-item">
+                <p>🆔 <strong>Passport and CPR retention</strong></p>
+                <p>When your employer keeps your documents</p>
+            </div>
+
+            <div class="situation-item">
+                <p>🏠 <strong>Removal from accommodation</strong></p>
+                <p>Being forced to leave your living space</p>
+            </div>
+
+            <div class="situation-item">
+                <p>⚠️ <strong>Abuse and harassment</strong></p>
+                <p>Any form of mistreatment at work</p>
+            </div>
+
+            <div class="situation-item">
+                <p>😟 <strong>Threats</strong></p>
+                <p>Intimidation or threatening behavior</p>
+            </div>
+
+            <div class="situation-item">
+                <p>💰 <strong>Unpaid wages</strong></p>
+                <p>Not receiving your salary on time</p>
+            </div>
+
+            <div class="situation-item">
+                <p>🚫 <strong>Restrictions of movement and communication</strong></p>
+                <p>Not being allowed to leave or contact family</p>
+            </div>
+
+            <div class="situation-item">
+                <p>❓ <strong>Any questions you have for LMRA</strong></p>
+                <p>General inquiries about your employment rights</p>
+            </div>
+        </div>
+
+        <h4>Contact Details:</h4>
+        <div class="contact-info">
+            <div class="contact-item">
+                <p><strong>📞 Hotline: 995</strong></p>
+                <p>Available 24 hours a day, 7 days a week</p>
+                <p>Support available in <strong>12 languages</strong></p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>🌐 Website:</strong></p>
+                <p><a href="https://lmra.bh/" target="_blank">lmra.bh</a></p>
+                <p><a href="http://www.endtrafficking.bh" target="_blank">endtrafficking.bh</a></p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>🏢 Expatriate Services Centre:</strong></p>
+                <p>Phone: +973 17103103</p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>🚪 Walk-in Support:</strong></p>
+                <p>Expat Protection Centre (accessible 24/7)</p>
+                <p>Location: Sehla</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> If you can't call yourself, you can ask a friend to call for you.</p>
+        </div>
+        <!-- Image: LMRA logo / phone with 995 -->
+    </div>
+
+    <!-- Topic 3: Other Hotlines -->
+    <div class="topic-section">
+        <h3>Other Important Hotlines</h3>
+
+        <div class="hotlines-list">
+            <div class="hotline-item">
+                <p><strong>📞 555 - Human Trafficking Cases</strong></p>
+                <p>Call this number to report human trafficking cases</p>
+            </div>
+
+            <div class="hotline-item">
+                <p><strong>📞 17710652 - Job Transfer Charges</strong></p>
+                <p>To report if your sponsor is charging you money to transfer jobs</p>
+            </div>
+
+            <div class="hotline-item">
+                <p><strong>📞 80008008 - Police Hotline</strong></p>
+                <p>Non-emergency police contact</p>
+            </div>
+        </div>
+        <!-- Image: Phone with multiple hotline numbers -->
+    </div>
+
+    <!-- Topic 4: Making a Complaint -->
+    <div class="topic-section">
+        <h3>How to Submit a Complaint About Your Employment</h3>
+
+        <h4>In-Person Complaint Process:</h4>
+        <div class="complaint-steps">
+            <div class="step-item">
+                <p><strong>Step 1: Go to the Expat Protection Centre</strong></p>
+                <p>Location: Sehla</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 2: Bring Required Documents</strong></p>
+                <ul>
+                    <li>Letter explaining your complaint</li>
+                    <li>Copy of your ID card (CPR)</li>
+                    <li>Passport with your residence visa</li>
+                    <li>Supporting evidence for your complaint (if available)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Alternative Methods:</h4>
+        <div class="alternative-methods">
+            <div class="method-item">
+                <p><strong>📞 Call Expat Protection Centre:</strong> 995</p>
+            </div>
+
+            <div class="method-item">
+                <p><strong>👮 Call Police:</strong> 80008008</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Keep copies of all documents you submit and note the date and time of your complaint.</p>
+        </div>
+        <!-- Image: Documents/complaint form -->
+    </div>
+
+    <!-- Topic 5: Shamsaha Support -->
+    <div class="topic-section">
+        <h3>Shamsaha - Support and Protection</h3>
+
+        <p>Shamsaha is an organization that provides support and protection services for workers in Bahrain, especially in cases of abuse or exploitation.</p>
+
+        <h4>Contact Details:</h4>
+        <div class="shamsaha-contacts">
+            <div class="contact-item">
+                <p><strong>📞 English Hotline:</strong> +973 38447588</p>
+                <p>Available 24/7</p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>📞 Arabic Hotline:</strong> +973 66710901</p>
+                <p>Available 24/7</p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>🌐 Website:</strong> <a href="https://shamsaha.org/" target="_blank">shamsaha.org</a></p>
+            </div>
+
+            <div class="contact-item">
+                <p><strong>📱 Mobile App:</strong></p>
+                <p>Download the Shamsaha app on your mobile phone</p>
+                <p>[QR code for app download would be here]</p>
+            </div>
+        </div>
+
+        <h4>What Shamsaha Can Help With:</h4>
+        <ul>
+            <li>Cases of abuse or exploitation</li>
+            <li>Legal advice and support</li>
+            <li>Safe shelter if needed</li>
+            <li>Counseling services</li>
+            <li>Assistance with reporting crimes</li>
+        </ul>
+        <!-- Image: Shamsaha logo / support symbol -->
+    </div>
+
+    <!-- Topic 6: Diplomatic Missions (Embassies) -->
+    <div class="topic-section">
+        <h3>Diplomatic Missions - Your Embassy</h3>
+
+        <p>Your embassy can provide support and assistance to you while you're working in Bahrain. Here are the contact details for various embassies:</p>
+
+        <div class="embassies-grid">
+            <!-- Philippines -->
+            <div class="embassy-card">
+                <h4>🇵🇭 The Philippine Embassy</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 2186, Road 2755, Block 327</p>
+                <p>Adliya 327, Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 1772 1234</p>
+            </div>
+
+            <!-- Indonesia -->
+            <div class="embassy-card">
+                <h4>🇮🇩 Embassy of Indonesia</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 2113, Road 2432</p>
+                <p>Juffair 324, Manama</p>
+                <p><strong>Phone:</strong> +973 17400164</p>
+            </div>
+
+            <!-- India -->
+            <div class="embassy-card">
+                <h4>🇮🇳 Embassy of India</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 1090, Road 2819, Block 428</p>
+                <p>Seef, Manama, Bahrain</p>
+                <p><strong>Phone:</strong></p>
+                <p>+973 17712683</p>
+                <p>+973 17560360</p>
+            </div>
+
+            <!-- Thailand -->
+            <div class="embassy-card">
+                <h4>🇹🇭 Royal Thai Embassy</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 132, Road 66, Zinj Area</p>
+                <p>Block 360, Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17233588</p>
+                <p><strong>Hotlines:</strong></p>
+                <p>+973 33622445</p>
+                <p>+973 39417067</p>
+            </div>
+
+            <!-- Bangladesh -->
+            <div class="embassy-card">
+                <h4>🇧🇩 Embassy of Bangladesh</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 71, Qufool Avenue, Salihiya</p>
+                <p>Road 5653, Block 356, Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17233925</p>
+            </div>
+
+            <!-- Pakistan -->
+            <div class="embassy-card">
+                <h4>🇵🇰 Embassy of Pakistan</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 35, Road 1901, Block 319</p>
+                <p>Diplomatic Area, Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17244113</p>
+            </div>
+
+            <!-- Ethiopia -->
+            <div class="embassy-card">
+                <h4>🇪🇹 Consulate of Ethiopia</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 256A, Road 3605, Block 336</p>
+                <p>Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17333387</p>
+            </div>
+
+            <!-- Sri Lanka -->
+            <div class="embassy-card">
+                <h4>🇱🇰 Embassy of Sri Lanka</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 25, Um Shoom Avenue</p>
+                <p>Block 333, Al Mahooz, Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17008410</p>
+            </div>
+
+            <!-- Nepal -->
+            <div class="embassy-card">
+                <h4>🇳🇵 Embassy of Nepal</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 2397, Road 2437, Block 324</p>
+                <p>Manama, Bahrain</p>
+                <p><strong>Phone:</strong> +973 17725583</p>
+            </div>
+
+            <!-- Kenya -->
+            <div class="embassy-card">
+                <h4>🇰🇪 Embassy of Kenya</h4>
+                <p><strong>Address:</strong></p>
+                <p>Building 133, Al-Zahra Block 8, Street 807</p>
+                <p>Al-Surra Code 45701, Kuwait City, Kuwait</p>
+                <p><strong>Phone:</strong></p>
+                <p>+965 25 243 771 / 2</p>
+                <p>+965 25 243 788</p>
+                <p><em>Note: Located in Kuwait</em></p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Save your embassy's contact information in your phone for easy access in case you need assistance.</p>
+        </div>
+        <!-- Image: Various embassy flags -->
+    </div>
+
+    <!-- Topic 7: Migrant Workers Protection Society (MWPS) -->
+    <div class="topic-section">
+        <h3>Migrant Workers Protection Society (MWPS)</h3>
+
+        <p>MWPS provides support services specifically for migrant workers in Bahrain.</p>
+
+        <h4>Contact Details by Nationality:</h4>
+        <div class="mwps-contacts">
+            <div class="country-contact">
+                <p><strong>🇵🇭 Philippines:</strong> +973 17004864</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇮🇳 India:</strong> +973 17004865</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇧🇩 Bangladesh:</strong> +973 17004866</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇵🇰 Pakistan:</strong> +973 17004867</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇱🇰 Sri Lanka:</strong> +973 17004868</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇮🇩 Indonesia:</strong> +973 17004869</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇰🇪 Kenya:</strong> +973 17004869</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇪🇹 Ethiopia:</strong> +973 17004870</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇳🇵 Nepal:</strong> +973 17004871</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇨🇲 Cameroon:</strong> +973 17004872</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🇺🇬 Uganda:</strong> +973 17004874</p>
+            </div>
+            <div class="country-contact">
+                <p><strong>🌍 Other Nationalities:</strong> +973 17004875</p>
+            </div>
+        </div>
+
+        <p><strong>🌐 Website:</strong> <a href="https://www.mwpsbahrain.com/" target="_blank">mwpsbahrain.com</a></p>
+        <!-- Image: MWPS logo / global support -->
+    </div>
+
+    <!-- Topic 8: Employment Offices -->
+    <div class="topic-section">
+        <h3>Approved Employment Offices</h3>
+
+        <p>If you need to contact an employment office or want to verify if an employment office is approved by the government:</p>
+
+        <div class="employment-info">
+            <p><strong>📋 For a list of approved employment offices, visit:</strong></p>
+            <p><a href="https://www.lmra.gov.bh/files/cms/shared/approved-employmentoffices01-15-may2023.pdf" target="_blank">LMRA Approved Employment Offices List</a></p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Warning:</strong> Only work with approved employment offices. Unapproved offices may be operating illegally and could put you at risk.</p>
+        </div>
+        <!-- Image: Approved checkmark / official document -->
+    </div>
+
+    <!-- Topic 9: Health Centres -->
+    <div class="topic-section">
+        <h3>Health Centres in Bahrain</h3>
+
+        <p>Here is a comprehensive list of health centres throughout Bahrain where you can receive medical care:</p>
+
+        <div class="health-centres-list">
+            <div class="health-centre">
+                <p><strong>A'Ali Health Center</strong></p>
+                <p>+973 17648888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Ahmed Ali Kanoo Health Center</strong></p>
+                <p>+973 17891111</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Al-Hoora Health Center</strong></p>
+                <p>+973 17318888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Al-Naim Health Center</strong></p>
+                <p>+973 17286888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Bahrain & Kuwait Health Center – Hidd</strong></p>
+                <p>+973 17165888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Bilad Al-Qadeem Health Center</strong></p>
+                <p>+973 17408888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Budaiya Coastal Clinic</strong></p>
+                <p>+973 17131076</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Budaiya Health Center</strong></p>
+                <p>+973 17698888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Halat Bu Maher Health Center</strong></p>
+                <p>+973 17356888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Hamad Kanoo Health Center</strong></p>
+                <p>+973 17768555</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Hamad Town Health Center</strong></p>
+                <p>+973 17418888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Ibn Sina Health Center</strong></p>
+                <p>+973 17516888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Isa Town Health Center</strong></p>
+                <p>+973 17480888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Jidhafs Health Center</strong></p>
+                <p>+973 17558777</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Kuwait Health Center</strong></p>
+                <p>+973 17608888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Madinat Khalifa Health Center</strong></p>
+                <p>+973 17892222</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Mohamed Jasim Kanoo Health Center</strong></p>
+                <p>+973 17436888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Muharraq Health Center</strong></p>
+                <p>+973 17460888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>NBB Health Center - Dair</strong></p>
+                <p>+973 17478888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>NBB Health Center - Arad</strong></p>
+                <p>+973 17463888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Sh. Abdulla Bin Khaled Al Khalifa Health Center</strong></p>
+                <p>+973 17768999</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Sh. Sabah Al-Salem Health Center</strong></p>
+                <p>+973 17821888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Sh. Salman Health Center</strong></p>
+                <p>+973 17348888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Sh. Jaber Al Ahmed Al Sabah Health Center</strong></p>
+                <p>+973 17696888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Sitra Health Center</strong></p>
+                <p>+973 17459888</p>
+            </div>
+
+            <div class="health-centre">
+                <p><strong>Yousif A. Rahman Engineer Health Center</strong></p>
+                <p>+973 17372888</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Remember:</strong> Your employer must pay for your healthcare. Don't hesitate to visit a health centre if you're sick.</p>
+        </div>
+        <!-- Image: Hospital/health centre building -->
+    </div>
+
+    <!-- Topic 10: Quick Reference - Important Numbers -->
+    <div class="topic-section">
+        <h3>Quick Reference - Important Contact Numbers</h3>
+
+        <div class="quick-reference-box">
+            <h4>🚨 EMERGENCY</h4>
+            <p><strong>999</strong> - Ambulance, Fire, Police (Immediate danger)</p>
+
+            <h4>📞 WORKPLACE SUPPORT</h4>
+            <p><strong>995</strong> - LMRA (24/7, 12 languages)</p>
+            <p><strong>80008008</strong> - Police Hotline (Non-emergency)</p>
+            <p><strong>555</strong> - Human Trafficking Cases</p>
+            <p><strong>17710652</strong> - Report Job Transfer Charges</p>
+
+            <h4>💜 SUPPORT SERVICES</h4>
+            <p><strong>+973 38447588</strong> - Shamsaha (English, 24/7)</p>
+            <p><strong>+973 66710901</strong> - Shamsaha (Arabic, 24/7)</p>
+
+            <h4>🏢 YOUR EMBASSY</h4>
+            <p>See embassy contact details above</p>
+
+            <h4>🏥 HEALTH CENTRES</h4>
+            <p>See complete list above</p>
+        </div>
+
+        <div class="final-message">
+            <p><strong>💚 Remember: You are not alone. There are many organizations and people ready to help you if you need support. Don't hesitate to reach out.</strong></p>
+        </div>
+        <!-- Image: Support/help hands -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}
