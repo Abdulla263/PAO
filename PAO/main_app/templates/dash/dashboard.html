@@ -3,19 +3,35 @@
 {% block content %}
 
 <h1>Dashboard</h1>
-<p>Everything goes here!</p>
+<h3>Total Progress: {{ total_progress }}%</h3>
 
+{% comment %} --- LISTING MODULES --- {% endcomment %}
+
+<h1>Modules</h1>
+
+{% for module in modules %}
+    <div class="module-card">
+        <a href="{% url 'detail' module.id %}">
+        <h3>Module {{ module.id }}: <b>{{ module.title }}</b></h3></a>
+        <p>Last Quiz Score: {{ module.percentage }}%</p>
+    </div>
+    <br>
+{% endfor %}
+
+
+
+{% comment %} --- NOTES FEATURE --- {% endcomment %}
 
 <h2>Add a New Note</h2>
 <form method="POST">
-  {% csrf_token %}
-  <label for="title">Title:</label><br>
-  <input type="text" id="title" name="title" required><br><br>
+    {% csrf_token %}
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
 
-  <label for="text">Text:</label><br>
-  <textarea id="text" name="text" rows="4" required></textarea><br><br>
+    <label for="text">Text:</label><br>
+    <textarea id="text" name="text" rows="4" required></textarea><br><br>
 
-  <button type="submit">Add Note</button>
+    <button type="submit">Add Note</button>
 </form>
 
 <hr>
@@ -37,4 +53,7 @@
 {% else %}
     <p>You have no notes yet.</p>
 {% endif %}
+
+
+
 {%endblock%}
