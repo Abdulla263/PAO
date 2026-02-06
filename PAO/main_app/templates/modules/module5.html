@@ -1,12 +1,381 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Wage Payment -->
+    <div class="topic-section">
+        <h3>Understanding Your Wages</h3>
+
+        <div class="important-note">
+            <p><strong>📌 Important:</strong> There is <strong>NO minimum wage</strong> for domestic workers in Bahrain.</p>
+        </div>
+
+        <p>Your wages are set by your contract or based on an agreement with your employer.</p>
+
+        <h4>Payment Details</h4>
+        <div class="payment-info">
+            <div class="info-item">
+                <p><strong>💰 Currency</strong></p>
+                <p>Your wages are paid in <strong>Bahraini Dinars (BHD)</strong></p>
+            </div>
+
+            <div class="info-item">
+                <p><strong>📅 Payment Schedule</strong></p>
+                <p>Your wages can be calculated and paid:</p>
+                <ul>
+                    <li><strong>Hourly</strong> - Per hour worked</li>
+                    <li><strong>Daily</strong> - Per day worked</li>
+                    <li><strong>Weekly</strong> - Per week worked</li>
+                    <li><strong>Monthly</strong> - Per month worked</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Image: Bahraini Dinar notes and calendar -->
+    </div>
+
+    <!-- Topic 2: How You Can Receive Your Wages -->
+    <div class="topic-section">
+        <h3>How You Can Receive Your Wages</h3>
+
+        <p>There are three ways you can receive your wages:</p>
+
+        <div class="payment-methods">
+            <div class="method-item">
+                <p><strong>💵 In Cash at Your Workplace</strong></p>
+                <p>Your employer gives you cash directly</p>
+            </div>
+
+            <div class="method-item">
+                <p><strong>🏦 Through Bank Transfer</strong></p>
+                <p>Money is transferred directly to your bank account</p>
+            </div>
+
+            <div class="method-item">
+                <p><strong>📱 Through BenefitPay</strong></p>
+                <p>A digital payment system available in Bahrain</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Keep a record of all your wage payments. This will help you track your earnings and identify any issues.</p>
+        </div>
+        <!-- Image: Cash, bank card, mobile payment -->
+    </div>
+
+    <!-- Topic 3: Opening a Bank Account -->
+    <div class="topic-section">
+        <h3>Opening a Bank Account</h3>
+
+        <p>You can open a bank account if you have:</p>
+        <ul>
+            <li>A valid residency permit</li>
+            <li>Your ID (CPR card)</li>
+        </ul>
+
+        <div class="important-note">
+            <p><strong>⚠️ Note:</strong> Some banks may not offer this service to domestic workers. Check with individual banks about their requirements.</p>
+        </div>
+
+        <h4>BenefitPay</h4>
+        <p>Once you have set up a bank account, you can use the <strong>BenefitPay application</strong> to:</p>
+        <ul>
+            <li>Receive money</li>
+            <li>Transfer money</li>
+            <li>Send money home</li>
+        </ul>
+
+        <p><strong>Learn more:</strong> Visit <a href="https://benefit.bh/personal/benefitpay/" target="_blank">benefit.bh/personal/benefitpay/</a></p>
+        <!-- Image: Bank building or BenefitPay logo -->
+    </div>
+
+    <!-- Topic 4: Wage Delays and Compensation -->
+    <div class="topic-section">
+        <h3>What Happens If Your Wages Are Delayed</h3>
+
+        <div class="critical-info">
+            <p><strong>⚠️ If you have not been paid the wages you are due, call 995 (LMRA).</strong></p>
+        </div>
+
+        <h4>Compensation for Wage Delays</h4>
+        <p>If your wages are delayed, you are entitled to compensation:</p>
+
+        <div class="compensation-rules">
+            <div class="rule-section">
+                <p><strong>📅 Delays Under 6 Months</strong></p>
+                <p>If your wages are delayed for less than six months, you must be compensated at a rate of <strong>6% of your wage</strong>.</p>
+            </div>
+
+            <div class="rule-section">
+                <p><strong>📅 Delays Over 6 Months</strong></p>
+                <p>If the delay is longer than six months, compensation increases by <strong>1% for each additional month</strong> of delay.</p>
+                <p><strong>Maximum:</strong> Cannot exceed <strong>12% of your wage per year</strong>.</p>
+            </div>
+        </div>
+
+        <h4>How Compensation Works</h4>
+
+        <div class="compensation-timeline">
+            <div class="timeline-item">
+                <p><strong>First 6 Months</strong></p>
+                <p>Salary + 6% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>7th Month</strong></p>
+                <p>Salary + 7% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>8th Month</strong></p>
+                <p>Salary + 8% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>9th Month</strong></p>
+                <p>Salary + 9% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>10th Month</strong></p>
+                <p>Salary + 10% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>11th Month</strong></p>
+                <p>Salary + 11% compensation</p>
+            </div>
+
+            <div class="timeline-item">
+                <p><strong>12th Month+</strong></p>
+                <p>Salary + 12% compensation (maximum)</p>
+            </div>
+        </div>
+        <!-- Image: Timeline or calendar showing compensation increases -->
+    </div>
+
+    <!-- Topic 5: Indemnity -->
+    <div class="topic-section">
+        <h3>Understanding Indemnity</h3>
+
+        <p><strong>What is indemnity?</strong></p>
+        <p>Indemnity is extra money you receive when you leave your employer. It is based on your last salary and how long you worked for your employer.</p>
+
+        <div class="important-note">
+            <p><strong>💰 Indemnity is added to your wage when you leave your job.</strong></p>
+        </div>
+
+        <h4>How Indemnity is Calculated</h4>
+
+        <div class="indemnity-rates">
+            <div class="rate-item">
+                <p><strong>📅 First 3 Years</strong></p>
+                <p>Indemnity calculated at <strong>4.16% per month</strong> of employment</p>
+            </div>
+
+            <div class="rate-item">
+                <p><strong>📅 After 3 Years</strong></p>
+                <p>Indemnity calculated at <strong>8.32% per month</strong> of employment after the third year</p>
+            </div>
+        </div>
+        <!-- Image: Calculator or money calculation -->
+    </div>
+
+    <!-- Topic 6: Indemnity Examples -->
+    <div class="topic-section">
+        <h3>Indemnity Calculation Examples</h3>
+
+        <div class="example-box">
+            <h4>Example 1: Working Less Than 3 Years</h4>
+            <p><strong>Worker:</strong> Kumari</p>
+            <p><strong>Monthly Salary:</strong> BHD 120</p>
+            <p><strong>Period Worked:</strong> 1 year and 3 months (15 months)</p>
+
+            <div class="calculation">
+                <p><strong>Calculation:</strong></p>
+                <p>BHD 120 (monthly salary) × 4.16% (standard rate) × 15 (months worked) = <strong>BHD 75</strong></p>
+
+                <p><strong>Total Payment When Leaving:</strong></p>
+                <p>BHD 120 (final month salary) + BHD 75 (indemnity) = <strong>BHD 195</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2: Working More Than 3 Years</h4>
+            <p><strong>Worker:</strong> Elvie</p>
+            <p><strong>Monthly Salary:</strong> BHD 150</p>
+            <p><strong>Period Worked:</strong> 4 years and 6 months (54 months)</p>
+
+            <div class="calculation">
+                <p><strong>Calculation for First 3 Years (36 months):</strong></p>
+                <p>BHD 150 × 4.16% × 36 months = <strong>BHD 225</strong></p>
+
+                <p><strong>Calculation After 3 Years (18 months):</strong></p>
+                <p>BHD 150 × 8.32% × 18 months = <strong>BHD 225</strong></p>
+
+                <p><strong>Total Indemnity:</strong></p>
+                <p>BHD 225 + BHD 225 = <strong>BHD 450</strong></p>
+
+                <p><strong>Total Payment When Leaving:</strong></p>
+                <p>BHD 150 (final month salary) + BHD 450 (indemnity) = <strong>BHD 600</strong></p>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <p><em>*All figures are rounded up to the nearest decimal</em></p>
+        </div>
+        <!-- Image: Money/calculation illustration -->
+    </div>
+
+    <!-- Topic 7: When You Receive Indemnity -->
+    <div class="topic-section">
+        <h3>When You Receive Indemnity</h3>
+
+        <div class="timing-info">
+            <div class="timing-item">
+                <p><strong>If Your Employer Terminates the Contract:</strong></p>
+                <p>You should receive your wages and indemnity when you leave.</p>
+            </div>
+
+            <div class="timing-item">
+                <p><strong>If You Terminate the Contract:</strong></p>
+                <p>You should receive your wages and indemnity <strong>within 7 days</strong> from when you left work.</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ If you do not receive your indemnity, call 995 for assistance.</strong></p>
+        </div>
+        <!-- Image: Calendar showing 7 days -->
+    </div>
+
+    <!-- Topic 8: Transferring Money -->
+    <div class="topic-section">
+        <h3>Transferring Money Home</h3>
+
+        <p>If you have a valid residency permit and ID, you can transfer money through several services:</p>
+
+        <div class="transfer-services">
+            <div class="service-item">
+                <p><strong>🏦 Bahrain Finance Company</strong></p>
+            </div>
+
+            <div class="service-item">
+                <p><strong>🌍 Travelex</strong></p>
+            </div>
+
+            <div class="service-item">
+                <p><strong>💸 WorldRemit</strong></p>
+            </div>
+
+            <div class="service-item">
+                <p><strong>💰 Western Union</strong></p>
+            </div>
+
+            <div class="service-item">
+                <p><strong>📱 BenefitPay</strong></p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Compare fees and exchange rates between different services to get the best deal when sending money home.</p>
+        </div>
+        <!-- Image: Money transfer/world map -->
+    </div>
+
+    <!-- Topic 9: Financial Scams -->
+    <div class="topic-section">
+        <h3>Protecting Yourself from Financial Scams</h3>
+
+        <div class="warning-box">
+            <p><strong>⚠️ BE CAREFUL!</strong></p>
+            <p>Be cautious of any calls or text messages that ask for personal information or money.</p>
+        </div>
+
+        <h4>Common Scam Examples:</h4>
+        <div class="scam-examples">
+            <div class="scam-item">
+                <p><strong>🎁 Fake Prize Messages</strong></p>
+                <p>"Congratulations! You have won 1000 BD!!!"</p>
+            </div>
+
+            <div class="scam-item">
+                <p><strong>🔐 Password Requests</strong></p>
+                <p>Messages asking you to enter your username, password, or OTP (one-time password)</p>
+            </div>
+
+            <div class="scam-item">
+                <p><strong>🆔 Fake CPR Expiry</strong></p>
+                <p>"Your CPR has expired. Click the link to renew"</p>
+            </div>
+        </div>
+
+        <h4>How to Protect Yourself:</h4>
+        <ul>
+            <li><strong>Do NOT respond</strong> to suspicious messages</li>
+            <li><strong>Do NOT click any links</strong> in suspicious messages</li>
+            <li><strong>Do NOT share</strong> personal information like passwords, OTPs, or bank details</li>
+            <li><strong>Inform your employer</strong> about any suspicious messages</li>
+            <li><strong>Delete</strong> the suspicious messages</li>
+        </ul>
+
+        <div class="tip-box">
+            <p><strong>💡 Remember:</strong> Official government agencies and banks will never ask for your password or OTP through text messages or phone calls.</p>
+        </div>
+        <!-- Image: Scam message examples with warning symbol -->
+    </div>
+
+    <!-- Topic 10: Earnings and Expenses Tracker -->
+    <div class="topic-section">
+        <h3>Tracking Your Earnings and Expenses</h3>
+
+        <p>It's important to keep track of your money. Use a table or notebook to record:</p>
+
+        <div class="tracking-items">
+            <div class="track-item">
+                <p><strong>💰 Money Received</strong></p>
+                <p>Your wages and any other income</p>
+            </div>
+
+            <div class="track-item">
+                <p><strong>💸 Money Spent</strong></p>
+                <p>Your daily expenses and purchases</p>
+            </div>
+
+            <div class="track-item">
+                <p><strong>🏠 Money Sent Home</strong></p>
+                <p>Amounts you transfer to your family</p>
+            </div>
+
+            <div class="track-item">
+                <p><strong>💵 Total Savings</strong></p>
+                <p>How much money you have saved</p>
+            </div>
+        </div>
+
+        <h4>Sample Tracking Table:</h4>
+        <p>Create columns for each month and rows for:</p>
+        <ul>
+            <li>Money Received</li>
+            <li>Money Spent</li>
+            <li>Money Sent Home</li>
+            <li>Total Savings</li>
+        </ul>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Review your earnings and expenses each month to understand your spending habits and increase your savings.</p>
+        </div>
+        <!-- Image: Budget tracking table or calculator -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}

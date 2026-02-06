@@ -1,12 +1,247 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: What Your Employer Must Provide -->
+    <div class="topic-section">
+        <h3>What Your Employer Must Give You</h3>
+
+        <p>If you have signed a tripartite contract, your employer must provide you with:</p>
+
+        <div class="employer-obligations">
+            <div class="obligation-item">
+                <p><strong>🏠 Suitable Accommodation</strong></p>
+                <p>A safe and appropriate place to live</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>👕 Clothes</strong></p>
+                <p>Appropriate clothing for your work</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>🍽️ Food</strong></p>
+                <p>Adequate and nutritious meals</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>🦺 Protective Equipment</strong></p>
+                <p>Safety gear needed for your work (such as rubber gloves for cleaning)</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>🏥 Health Care</strong></p>
+                <p>Medical care and health insurance</p>
+            </div>
+
+            <div class="obligation-item">
+                <p><strong>📞 Regular Contact with Your Family</strong></p>
+                <p>The ability to call and communicate with your family over the phone</p>
+            </div>
+        </div>
+        <!-- Image: Icons representing each provision -->
+    </div>
+
+    <!-- Topic 2: Your Rights Even Without a Contract -->
+    <div class="topic-section">
+        <h3>Your Rights Are Protected</h3>
+
+        <div class="important-note">
+            <p><strong>⚠️ Important:</strong> If your employer does not provide these things, call <strong>995</strong>, even if you do not have a contract.</p>
+        </div>
+
+        <p>Your basic rights to accommodation, food, clothing, protective equipment, healthcare, and family contact are protected by Bahraini law, regardless of whether you have a written contract.</p>
+        <!-- Image: Phone with 995 displayed -->
+    </div>
+
+    <!-- Topic 3: Accommodation Standards -->
+    <div class="topic-section">
+        <h3>Suitable Accommodation</h3>
+
+        <p>Your accommodation should be:</p>
+
+        <div class="accommodation-standards">
+            <div class="standard-item">
+                <p><strong>✓ Safe and Clean</strong></p>
+                <p>The living space should be hygienic and well-maintained</p>
+            </div>
+
+            <div class="standard-item">
+                <p><strong>✓ Private</strong></p>
+                <p>You should have your own space, ideally a separate room</p>
+            </div>
+
+            <div class="standard-item">
+                <p><strong>✓ With Basic Facilities</strong></p>
+                <p>Access to bathroom, sleeping area, and storage for your belongings</p>
+            </div>
+
+            <div class="standard-item">
+                <p><strong>✓ Comfortable</strong></p>
+                <p>Adequate ventilation, lighting, and temperature control</p>
+            </div>
+        </div>
+
+        <p>Your contract should specify whether you will have:</p>
+        <ul>
+            <li>Separate room with separate bathroom</li>
+            <li>Separate room with common bathroom</li>
+            <li>Common room with separate bathroom</li>
+            <li>Common room with common bathroom</li>
+        </ul>
+        <!-- Image: Clean bedroom/accommodation -->
+    </div>
+
+    <!-- Topic 4: Food and Nutrition -->
+    <div class="topic-section">
+        <h3>Food Provisions</h3>
+
+        <p>Your employer must provide you with adequate food. This means:</p>
+
+        <div class="food-provisions">
+            <div class="provision-item">
+                <p><strong>🍽️ Regular Meals</strong></p>
+                <p>Three meals a day or as agreed in your contract</p>
+            </div>
+
+            <div class="provision-item">
+                <p><strong>🥗 Nutritious Food</strong></p>
+                <p>Food that is healthy and sufficient for your needs</p>
+            </div>
+
+            <div class="provision-item">
+                <p><strong>🌍 Cultural Considerations</strong></p>
+                <p>Ideally, food that respects your dietary preferences and cultural background</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> If you have dietary restrictions or preferences, discuss this with your employer early on.</p>
+        </div>
+        <!-- Image: Healthy meals/food -->
+    </div>
+
+    <!-- Topic 5: Clothing and Work Equipment -->
+    <div class="topic-section">
+        <h3>Clothing and Protective Equipment</h3>
+
+        <h4>Clothing</h4>
+        <p>Your employer should provide you with appropriate clothing for your work, which may include:</p>
+        <ul>
+            <li>Work uniforms (if required)</li>
+            <li>Appropriate footwear for household work</li>
+            <li>Seasonal clothing as needed</li>
+        </ul>
+
+        <h4>Protective Equipment</h4>
+        <p>Your employer must provide protective equipment necessary for your work, such as:</p>
+        <ul>
+            <li>Rubber gloves for cleaning and handling chemicals</li>
+            <li>Any other safety equipment needed for specific tasks</li>
+        </ul>
+
+        <div class="important-note">
+            <p><strong>⚠️ Safety First:</strong> Always use protective equipment when handling cleaning products, sharp objects, or hot surfaces.</p>
+        </div>
+        <!-- Image: Protective gloves and work clothing -->
+    </div>
+
+    <!-- Topic 6: Healthcare -->
+    <div class="topic-section">
+        <h3>Healthcare Provision</h3>
+
+        <p>Your employer is responsible for your healthcare, including:</p>
+
+        <div class="healthcare-provisions">
+            <div class="healthcare-item">
+                <p><strong>🏥 Health Insurance</strong></p>
+                <p>Your employer must provide health insurance coverage</p>
+            </div>
+
+            <div class="healthcare-item">
+                <p><strong>💊 Medical Treatment</strong></p>
+                <p>Access to doctors, health centres, and hospitals when needed</p>
+            </div>
+
+            <div class="healthcare-item">
+                <p><strong>💰 Payment for Healthcare</strong></p>
+                <p>Your employer must pay for your healthcare costs</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>💡 Remember:</strong> If you're sick, tell your employer immediately and ask to see a doctor. Don't rely only on over-the-counter medicine.</p>
+        </div>
+        <!-- Image: Hospital or healthcare symbol -->
+    </div>
+
+    <!-- Topic 7: Communication with Family -->
+    <div class="topic-section">
+        <h3>Staying Connected with Your Family</h3>
+
+        <p>Your employer must allow you to have <strong>regular contact over the phone with your family</strong>. This is an important right that helps you maintain your mental well-being and connection to home.</p>
+
+        <div class="communication-rights">
+            <div class="right-item">
+                <p><strong>📱 Phone Access</strong></p>
+                <p>You should be able to call your family regularly</p>
+            </div>
+
+            <div class="right-item">
+                <p><strong>🌐 Internet Communication</strong></p>
+                <p>Access to communicate through messaging apps or video calls (if available)</p>
+            </div>
+
+            <div class="right-item">
+                <p><strong>⏰ Private Time</strong></p>
+                <p>Time and privacy to speak with your loved ones</p>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>⚠️ If your employer restricts your communication with family, this is a violation of your rights. Call 995 for help.</strong></p>
+        </div>
+        <!-- Image: Person on phone call with family -->
+    </div>
+
+    <!-- Topic 8: What to Do If Your Rights Are Violated -->
+    <div class="topic-section">
+        <h3>If Your Living Conditions Are Not Met</h3>
+
+        <div class="action-steps">
+            <div class="step-item">
+                <p><strong>Step 1: Talk to Your Employer</strong></p>
+                <p>First, try to communicate your concerns directly to your employer</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 2: Document the Issues</strong></p>
+                <p>Keep a record of what is not being provided</p>
+            </div>
+
+            <div class="step-item">
+                <p><strong>Step 3: Call for Help</strong></p>
+                <p>If the situation doesn't improve, call <strong>995</strong> for assistance</p>
+            </div>
+        </div>
+
+        <div class="emergency-contact">
+            <p><strong>📞 Emergency Contact: 995</strong></p>
+            <p>Available 24/7 in 12 languages</p>
+        </div>
+        <!-- Image: Help/support symbol -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}

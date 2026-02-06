@@ -1,12 +1,162 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% block content %}
-<div>
-  <h2>Module {{ module.id }}</h2>
-  <h1>{{ module.title }}</h1>
-  <p>{{ module.description }}</p>
+<div class="module-container">
+    <div class="module-header">
+        <h2>Module {{ module.id }}</h2>
+        <h1>{{ module.title }}</h1>
+        <p class="module-description">{{ module.description }}</p>
+    </div>
+
+    <!-- Topic 1: Who is a Domestic Worker? -->
+    <div class="topic-section">
+        <h3>Who is a Domestic Worker?</h3>
+        <p>A domestic worker is anyone who works in a house, whether full time or part time. As a domestic worker, you will make a positive impact on your employer, their family, and Bahraini society.</p>
+    </div>
+
+    <!-- Topic 2: Bahrain Map & Locations -->
+    <div class="topic-section">
+        <h3>About Bahrain</h3>
+        <p>Bahrain is divided into several governorates:</p>
+        <ul>
+            <li><strong>Capital Governorate</strong> - Home to Manama, the capital city</li>
+            <li><strong>Muharraq Governorate</strong> - Where Bahrain International Airport is located</li>
+            <li><strong>Northern Governorate</strong></li>
+            <li><strong>Southern Governorate</strong></li>
+        </ul>
+        <p><strong>Important landmarks include:</strong></p>
+        <ul>
+            <li>Bahrain World Trade Center</li>
+            <li>Bab Al Bahrain</li>
+            <li>Khamis Mosque</li>
+            <li>Tree of Life</li>
+            <li>Bahrain International Circuit</li>
+            <li>Shaikh Salman bin Ahmed Fort</li>
+        </ul>
+        <!-- Image: Bahrain map showing governorates -->
+    </div>
+
+    <!-- Topic 3: Weather -->
+    <div class="topic-section">
+        <h3>Weather</h3>
+        <p>Bahrain's weather ranges from around <strong>16 degrees Celsius</strong> in the winters to around <strong>48 degrees Celsius</strong> in the summers.</p>
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Stay hydrated and try to avoid the sun during peak hours.</p>
+        </div>
+        <!-- Image: Temperature indicators showing 16°C and 48°C -->
+    </div>
+
+    <!-- Topic 4: Clothing -->
+    <div class="topic-section">
+        <h3>Clothing</h3>
+        <p>In Bahrain, you will see people dress in traditional clothing such as <strong>thobe</strong> and <strong>abaya</strong>, as well as other kinds of clothing. Bahrain is a diverse country where various styles of dress are common.</p>
+        <!-- Image: People in traditional Bahraini clothing -->
+    </div>
+
+    <!-- Topic 5: Food -->
+    <div class="topic-section">
+        <h3>Food</h3>
+        <p><strong>Traditional Bahraini food includes:</strong></p>
+        <ul>
+            <li>Machboos</li>
+            <li>Balaleet</li>
+            <li>Samboosa</li>
+            <li>Halwa (حلوى بحرينية)</li>
+            <li>Chai Karak (شاي كرك)</li>
+        </ul>
+        <p>You can also find food from your own culture in Bahrain: Indian, Pakistani, Bengali, Filipino, Indonesian, Ethiopian and many more.</p>
+        <!-- Images: Traditional Bahraini dishes -->
+    </div>
+
+    <!-- Topic 6: Religion -->
+    <div class="topic-section">
+        <h3>Religion</h3>
+        <p>The main religion in Bahrain is <strong>Islam</strong>. All religions are respected and there are many places of worship around the country.</p>
+
+        <h4>Ramadan</h4>
+        <p>Muslims observe the holy month of Ramadan once a year, where they fast from sunrise to sunset. During the hours of fasting, eating, drinking and smoking is not permitted in public places.</p>
+        <!-- Image: Mosque or religious symbols -->
+    </div>
+
+    <!-- Topic 7: Languages -->
+    <div class="topic-section">
+        <h3>Languages</h3>
+        <p><strong>Arabic</strong> is the main language, but <strong>English</strong> is widely spoken as well as other languages like <strong>Hindi</strong> and <strong>Urdu</strong>.</p>
+        <div class="tip-box">
+            <p><strong>💡 Tip:</strong> Learning your employer's language will help you in your job.</p>
+        </div>
+        <p><strong>Common greetings:</strong></p>
+        <ul>
+            <li>مرحبا (Marhaba) / Ahlan = Hello</li>
+        </ul>
+        <!-- Image: Language learning or greetings -->
+    </div>
+
+    <!-- Topic 8: Public Transport -->
+    <div class="topic-section">
+        <h3>Public Transport</h3>
+        <p>You can purchase a <strong>GO Card</strong> for <strong>500 fils</strong> (as of May 2023) to use public buses in Bahrain.</p>
+
+        <p><strong>How it works:</strong></p>
+        <ul>
+            <li>Add money to the card to pay for your bus trips</li>
+            <li>One trip costs <strong>275 fils</strong></li>
+            <li>Daily limit is <strong>700 fils</strong></li>
+        </ul>
+
+        <p><strong>Where to purchase:</strong></p>
+        <ul>
+            <li>Ticket offices in Manama, Muharraq, and Isa Town</li>
+            <li>Bus terminals</li>
+            <li>Bahrain International Airport</li>
+        </ul>
+
+        <p><strong>For more information:</strong></p>
+        <ul>
+            <li>Visit: <a href="http://www.bahrainbus.bh" target="_blank">www.bahrainbus.bh</a> for weekly bus timetables and costs</li>
+            <li>Call: 66311111</li>
+        </ul>
+        <!-- Image: GO Card or public bus -->
+    </div>
+
+    <!-- Topic 9: Navigating a New Culture -->
+    <div class="topic-section">
+        <h3>Navigating a New Culture</h3>
+        <h4>Tips for Overcoming Culture Shock</h4>
+
+        <div class="tips-list">
+            <div class="tip-item">
+                <p><strong>📚 Learn the rules of Bahrain</strong></p>
+                <p>Get to know the culture. Visit <a href="http://www.bahrain.bh" target="_blank">www.bahrain.bh</a> for more information on Bahrain.</p>
+            </div>
+
+            <div class="tip-item">
+                <p><strong>👥 Make friends</strong></p>
+                <p>Reach out to your community. Getting to know local people will help you overcome cultural differences and understand the country. It will also show you how to be more sensitive to cultural norms and expectations.</p>
+            </div>
+
+            <div class="tip-item">
+                <p><strong>📞 Maintain contact with home</strong></p>
+                <p>Try to maintain contact with friends and family back home.</p>
+            </div>
+
+            <div class="tip-item">
+                <p><strong>🏠 Do something that reminds you of home</strong></p>
+                <p>This can help you feel connected to your roots while adapting to your new environment.</p>
+            </div>
+
+            <div class="tip-item">
+                <p><strong>💪 Exercise and do stretches</strong></p>
+                <p>Physical activity helps maintain your mental and physical well-being.</p>
+            </div>
+        </div>
+        <!-- Image: People exercising or community gathering -->
+    </div>
+
+    <div class="module-footer">
+        <a href="{% url 'quiz' module.id %}">
+            <button class="btn-quiz">Test Your Knowledge</button>
+        </a>
+    </div>
 </div>
-<a href="{% url 'quiz' module.id %}">
-  <button>Test Your Knowledge</button>
-</a>
 {% endblock %}
