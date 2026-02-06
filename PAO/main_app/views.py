@@ -37,7 +37,25 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+
 def dashboard(request):
+    modules = Module.objects.all().order_by("id")
+    total_percentage=0
+
+# getting the percentage in dash
+    for module in modules:
+        quiz = Quiz.objects.filter(user=request.user, module=module).order_by('-timestamp').first()
+        if quiz:
+            total_questions = quiz.responses.count()
+            module.percentage = int((quiz.score/total_questions)*100)
+        else:
+            module.percentage = 0
+
+        total_percentage = total_percentage + module.percentage
+
+    total_progress = int(total_percentage/7)
+
+# notes function
     if request.method == "POST":
         title = request.POST.get("title")
         text = request.POST.get("text")
@@ -45,7 +63,10 @@ def dashboard(request):
             Note.objects.create(user=request.user, title=title, text=text)
             return redirect('dashboard')
     notes = Note.objects.filter(user=request.user).order_by('-timestamp')
-    return render(request, 'dash/dashboard.html', {'notes': notes})
+
+    return render(request, 'dash/dashboard.html', {"modules":modules, "total_progress":total_progress, 'notes': notes})
+
+
 
 def modules(request):
     modules = Module.objects.all().order_by("id")
@@ -146,6 +167,8 @@ class ProfileEdit(UpdateView):
     def get_success_url(self):
         return '/accounts/profile/'
 
+
+
 class CreateNote(CreateView):
     model = Note
     fields = ['title','text']
@@ -154,13 +177,10 @@ class CreateNote(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
 class UpdateNote(UpdateView):
     model = Note
     fields = ['title','text']
     success_url = '/dashboard/'
-
-
 
 class DeleteNote(DeleteView):
     model = Note
