@@ -1,6 +1,15 @@
 
 {% extends 'base.html' %}
 {% block content %}
+<div class="module-nav">
+  <a href="{% url 'detail' 1 %}">
+    <button>⬅️ Previous Module</button>
+  </a>
+  <a href="{% url 'detail' 3 %}">
+    <button>Next Module ➡️</button>
+  </a>
+</div>
+
 <div class="module-container">
     <div class="module-header">
         <h2>Module {{ module.id }}</h2>
@@ -213,10 +222,14 @@
         <!-- Image: Warning/protection symbol -->
     </div>
 
+
+  {% if user.is_authenticated %}
     <div class="module-footer">
         <a href="{% url 'quiz' module.id %}">
             <button class="btn-quiz">Test Your Knowledge</button>
         </a>
     </div>
+  {% endif %}
+  
 </div>
 {% endblock %}
