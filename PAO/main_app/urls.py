@@ -17,5 +17,8 @@ urlpatterns = [
     path('module/questions/<int:pk>/delete/', views.QuestionDeleteView.as_view(), name='question_delete'),
 
     path('accounts/profile/', views.profile, name='profile'),
-    path('accounts/profile/edit/', views.ProfileEdit.as_view(), name='ProfileEdit')
+    path('accounts/profile/edit/', views.ProfileEdit.as_view(), name='ProfileEdit'),
+
+    path('note/<int:pk>/edit/', views.UpdateNote.as_view(), name='edit_note'),
+    path('note/<int:pk>/delete/', views.DeleteNote.as_view(), name='delete_note'),
 ]
