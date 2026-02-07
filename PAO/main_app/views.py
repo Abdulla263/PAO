@@ -185,3 +185,21 @@ class UpdateNote(UpdateView):
 class DeleteNote(DeleteView):
     model = Note
     success_url = '/dashboard/'
+
+
+def calculator(request):
+    indemnity = 0
+    notify = ""
+
+    if request.method == "POST":
+        salary = float(request.POST.get('salary'))
+        months = int(request.POST.get('months'))
+
+        if months < 12:
+            notify = "Only employees who have completed at least one year of continuous service are entitled to the indemnity."
+        elif months <= 36:
+            indemnity = salary * 0.0416 * months
+        else:
+            indemnity = (salary * 0.416 * 36) + (salary * 0.0832) * (months - 36)
+
+    return render(request, 'calculator.html', {"indemnity": indemnity, "notify": notify})
