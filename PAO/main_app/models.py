@@ -29,7 +29,8 @@ class Profile(models.Model):
         blank=True
     )
     nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
-    image = models.ImageField(upload_to='main_app/static/uploads/', default='')
+    image = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    address = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.user.username
