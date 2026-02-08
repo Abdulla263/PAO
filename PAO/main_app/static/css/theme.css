@@ -310,6 +310,22 @@ nav a:hover {
     border: 4px solid var(--primary-beige);
 }
 
+.no-user-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-navy), var(--secondary-gray));
+    margin: 0 auto var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-white);
+    font-size: 3rem;
+    font-weight: 700;
+    border: 4px solid var(--primary-beige);
+}
+
+
 .user-info {
     text-align: center;
 }

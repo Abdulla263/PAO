@@ -6,8 +6,15 @@
     <!-- LEFT PANEL: User Profile -->
     <aside class="user-profile-panel">
         <div class="user-avatar">
-            {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+    {% if user.profile.image %}
+        <img src={{ user.profile.image.url }} alt="Profile Image">
+    {% else %}
+        <div class="no-user-avatar">
+    {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
         </div>
+    {% endif %}
+</div>
+
         <div class="user-info">
             <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
             <div class="user-email">{{ user.email }}</div>
@@ -19,7 +26,7 @@
             </div>
             <div class="stat-item">
                 <span class="stat-label">Nationality</span>
-                <span class="stat-value">{{ user.profile.nationality }}</span>
+                <span class="stat-value">{{ user.profile.get_nationality_display }}</span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">CPR</span>
@@ -27,7 +34,7 @@
             </div>
             <div class="stat-item">
                 <span class="stat-label">Address</span>
-                <span class="stat-value">{{ notes|length }}</span>
+                <span class="stat-value">{{ user.profile.address }}</span>
             </div>
             <form action="{% url 'ProfileEdit' %}" method="post" >
                 {% csrf_token %}

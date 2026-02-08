@@ -3,13 +3,11 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.urls import reverse, reverse_lazy
 from .forms import CustomUserCreationForm, ProfileForm, QuestionForm, AnswerFormSet
-
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-
 from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer , Note
-
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -37,7 +35,7 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required
 def dashboard(request):
     modules = Module.objects.all().order_by("id")
     total_percentage=0
@@ -76,7 +74,7 @@ def module_detail(request, module_id):
     module = Module.objects.get(id=module_id)
     return render(request, f'modules/module{module_id}.html', {"module": module})
 
-
+@login_required
 def quiz(request, module_id):
     module = Module.objects.get(id=module_id)
     questions = Question.objects.filter(module=module).order_by("?")
@@ -113,7 +111,7 @@ def quiz(request, module_id):
 
     return render(request, 'modules/quiz.html', {"module":module, "questions":questions})
 
-
+@login_required
 def quiz_results(request, quiz_id):
     quiz = Quiz.objects.get(id=quiz_id)
     responses = quiz.responses.select_related("question", "selected_answer")
@@ -130,15 +128,17 @@ def quiz_results(request, quiz_id):
 
 
 
-class QuestionUpdateView(UpdateView):
+class QuestionUpdateView(LoginRequiredMixin,UpdateView):
     model = Question
     form_class = QuestionForm
 
+    @login_required
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["formset"] = AnswerFormSet(instance=self.object)
         return context
 
+    @login_required
     def form_valid(self, form):
         formset = AnswerFormSet(self.request.POST, instance=self.object)
         if formset.is_valid():
@@ -147,29 +147,30 @@ class QuestionUpdateView(UpdateView):
             return redirect("quiz", module_id=self.object.module.id)
         return self.form_invalid(form)
 
-class QuestionDeleteView(DeleteView):
+class QuestionDeleteView(LoginRequiredMixin,DeleteView):
     model = Question
 
+    @login_required
     def get_success_url(self):
         return reverse_lazy("quiz", kwargs={"module_id": self.object.module.id})
 
 
-
+@login_required
 def profile(request):
     return render(request, 'dash/profile.html')
 
-class ProfileEdit(UpdateView):
+class ProfileEdit(LoginRequiredMixin,UpdateView):
     model = Profile
-    fields= ['cpr','phone','nationality']
+    fields= ['cpr','phone','nationality','address','image']
     def get_object(self, queryset=None):
         return Profile.objects.get(user=self.request.user)
 
     def get_success_url(self):
-        return '/accounts/profile/'
+        return 'dashboard'
 
 
 
-class CreateNote(CreateView):
+class CreateNote(LoginRequiredMixin,CreateView):
     model = Note
     fields = ['title','text']
     success_url = 'dashboard/'
@@ -177,12 +178,12 @@ class CreateNote(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class UpdateNote(UpdateView):
+class UpdateNote(LoginRequiredMixin,UpdateView):
     model = Note
     fields = ['title','text']
     success_url = '/dashboard/'
 
-class DeleteNote(DeleteView):
+class DeleteNote(LoginRequiredMixin,DeleteView):
     model = Note
     success_url = '/dashboard/'
 
