@@ -1,50 +1,47 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAO Bahrain</title>
-
-    {% comment %} CSS LINK GOES HERE {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-  </head>
-
-  <body>
+</head>
+<body>
     <header class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="{% url 'home' %}" class="brand-logo">PAO</a>
-          <a href="{% url 'about' %}">About</a>
-          <a href="{% url 'modules' %}">Modules</a>
-          <a href="{% url 'calculator' %}">Indemnity Calculator</a>
+        <nav>
+            <div class="nav-wrapper">
+                <!-- Logo/Brand -->
+                <a href="{% url 'home' %}" class="brand-logo">
+                    <img src="{% static 'images/0.PAO_home_white.png' %}" alt="PAO Home">
+                </a>
 
+                <!-- Navigation Links -->
+                <div class="nav-links">
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'modules' %}">Modules</a>
+                    <a href="{% url 'calculator' %}">Calculator</a>
 
-          {% if user.is_authenticated %}
-          <a href="{% url 'profile' %}">Profile</a>
-          <a href="{% url 'dashboard' %}">Dashboard</a>
-          <form method="post" action="{% url 'logout' %}">
-              {% csrf_token %}
-              <button class="btn-nav-temp" type="submit">Logout</button>
-          </form>
-
-          {% else %}
-          <a href="{% url 'login' %}">Log In</a>
-          <a href="{% url 'signup' %}">Sign Up</a>
-          {% endif %}
-        </div>
-      </nav>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}">Dashboard</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Log In</a>
+                        <a href="{% url 'signup' %}">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <footer class="page-footer">
-      <hr />
-
-      <div class="right">
-        All Rights Reserved, &copy; 2026 Post-Arrival Orientation for Domestic Workers in the Kingdom of Bahrain
-      </div>
+        <div class="right">
+            All Rights Reserved, &copy; 2026 Post-Arrival Orientation for Domestic Workers in the Kingdom of Bahrain
+        </div>
     </footer>
-  </body>
+</body>
 </html>
