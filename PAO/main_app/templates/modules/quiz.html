@@ -1,36 +1,46 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Quiz for Module {{ module.id }}: {{ module.title }}</h1>
 
-{% for question in questions %}
-<hr>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>Quiz for Module {{ module.id }}: {{ module.title }}</h1>
+    </div>
 
-  {% if user.is_staff %}
-    <a href="{% url 'question_edit' question.id %}">Edit</a>
-    <a href="{% url 'question_delete' question.id %}">Delete</a>
-  {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
 
-  <form action="" method="post">
-    {% csrf_token %}
-        <div>
+        {% for question in questions %}
+        <div class="quiz-question">
+            {% if user.is_staff %}
+            <div style="margin-bottom: 10px;">
+                <a href="{% url 'question_edit' question.id %}" style="color: #1976d2; margin-right: 10px;">Edit</a>
+                <a href="{% url 'question_delete' question.id %}" style="color: var(--secondary-red);">Delete</a>
+            </div>
+            {% endif %}
+
             <p><b>{{ forloop.counter }}. {{ question.text }}</b></p>
+
             {% for answer in question.answers.all %}
-              <div>
-                <label>
-                  <input
+            <div class="quiz-answer">
+                <input
                     type="radio"
+                    id="q{{ question.id }}_a{{ answer.id }}"
                     name="question_{{ question.id }}"
                     value="{{ answer.id }}"
                     required
-                    >
+                >
+                <label for="q{{ question.id }}_a{{ answer.id }}">
                     {{ answer.text }}
-                <label>
-              </div>
-          {% endfor %}
+                </label>
+            </div>
+            {% endfor %}
         </div>
-      {% endfor %}
-      <hr>
-      <button type="submit">Submit Answers</button>
-  </form>
+        {% endfor %}
+
+        <div class="quiz-submit">
+            <button type="submit">Submit Answers</button>
+        </div>
+    </form>
+</div>
+
 {% endblock %}

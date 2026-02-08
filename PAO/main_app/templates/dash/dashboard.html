@@ -1,59 +1,133 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Dashboard</h1>
-<h3>Total Progress: {{ total_progress }}%</h3>
+<div class="dashboard-container">
 
-{% comment %} --- LISTING MODULES --- {% endcomment %}
+    <!-- LEFT PANEL: User Profile -->
+    <aside class="user-profile-panel">
+        <div class="user-avatar">
+            {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+        </div>
+        <div class="user-info">
+            <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
+            <div class="user-email">{{ user.email }}</div>
+        </div>
+        <div class="user-stats">
+            <div class="stat-item">
+                <span class="stat-label">Username</span>
+                <span class="stat-value">{{ user.username }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Nationality</span>
+                <span class="stat-value">{{ user.profile.nationality }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">CPR</span>
+                <span class="stat-value">{{ user.profile.cpr }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Address</span>
+                <span class="stat-value">{{ notes|length }}</span>
+            </div>
+            <form action="{% url 'ProfileEdit' %}" method="post" >
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-small btn-full">Edit Profile</button>
+            </form>
+        </div>
+               <form method="post" action="{% url 'logout' %}" >
+                            {% csrf_token %}
+                            <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
+                        </form>
+    </aside>
 
-<h1>Modules</h1>
+    <!-- CENTER PANEL: Main Dashboard -->
+    <main class="dashboard-main">
 
-{% for module in modules %}
-    <div class="module-card">
-        <a href="{% url 'detail' module.id %}">
-        <h3>Module {{ module.id }}: <b>{{ module.title }}</b></h3></a>
-        <p>Last Quiz Score: {{ module.percentage }}%</p>
-    </div>
-    <br>
-{% endfor %}
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1 class="welcome-title">Welcome, {{ user.first_name }}!</h1>
+            <p class="welcome-subtitle">Continue your learning journey</p>
+        </section>
 
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <div class="progress-header">
+                <h2 class="progress-title">Overall Progress</h2>
+                <span class="progress-percentage">{{ total_progress }}%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: {{ total_progress }}%;"></div>
+            </div>
+        </section>
 
+        <!-- Modules Section -->
+        <section>
 
-{% comment %} --- NOTES FEATURE --- {% endcomment %}
+            <h2 style="margin-bottom: var(--spacing-md);">Your Modules</h2>
+            <div class="modules-grid">
+                {% for module in modules %}
+                <div class="module-card">
+                    <a href="{% url 'detail' module.id %}">
+                        <h3>
+                            Module {{ module.id }}:
+                            <b>{{ module.title }}</b>
+                        </h3>
+                        <div class="module-score">
+                            <span class="score-label">Last Quiz Score:</span>
+                            <span class="score-value">{{ module.percentage }}%</span>
 
-<h2>Add a New Note</h2>
-<form method="POST">
-    {% csrf_token %}
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" required><br><br>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
 
-    <label for="text">Text:</label><br>
-    <textarea id="text" name="text" rows="4" required></textarea><br><br>
+    </main>
 
-    <button type="submit">Add Note</button>
-</form>
+    <!-- RIGHT PANEL: Notes -->
 
-<hr>
-<h2>My Notes</h2>
+    <aside class="notes-panel">
 
-{% if notes %}
-    <ul>
-    {% for note in notes %}
-        <li>
-            <h2>{{ note.title }}</h2>
-            <p>{{ note.text }}</p>
-            <h6>{{ note.timestamp|date:"M d, Y H:i" }}</h6>
+        <div class="notes-header">
+            <h3 class="notes-title">My Notes</h3>
+        </div>
 
-            <a href="{% url 'edit_note' note.pk %}">Edit</a> |
-            <a href="{% url 'delete_note' note.pk %}">Delete</a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>You have no notes yet.</p>
-{% endif %}
+        <!-- Add Note Form -->
+        <form method="POST" class="add-note-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required placeholder="Note title...">
+            </div>
+            <div class="form-group">
+                <label for="text">Note:</label>
+                <textarea id="text" name="text" rows="3" required placeholder="Write your note here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-small btn-full">Add Note</button>
+        </form>
 
+        <!-- Notes List -->
+        {% if notes %}
+        <ul class="notes-list">
+            {% for note in notes %}
+            <li class="note-item">
+                <h4 class="note-title">{{ note.title }}</h4>
+                <p class="note-text">{{ note.text }}</p>
+                <p class="note-timestamp">{{ note.timestamp|date:"M d, Y H:i" }}</p>
+                <div class="note-actions">
+                    <a href="{% url 'edit_note' note.pk %}">Edit</a>
+                    <a href="{% url 'delete_note' note.pk %}">Delete</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="no-notes">You have no notes yet. Add your first note above!</p>
+        {% endif %}
 
+    </aside>
 
-{%endblock%}
+</div>
+
+{% endblock %}

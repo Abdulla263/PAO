@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="module-nav">
   <a href="{% url 'detail' 1 %}">
@@ -20,6 +21,7 @@
     <!-- Topic 1: Contracts -->
     <div class="topic-section">
         <h3>Your Employment Contract</h3>
+        <img class="responsive-img" style="max-width:600px" alt="Tripartite Contract" src={% static 'images/2.PAO_tripartite.png' %}>
 
         <h4>Tripartite Contract</h4>
         <p>If you came to Bahrain through an employment office, make sure you have a <strong>tripartite contract</strong>. If you are recruited through an employment office, you must have a contract. If you don't, call <strong>995</strong>.</p>
@@ -71,6 +73,7 @@
     <!-- Topic 3: Contract Details -->
     <div class="topic-section">
         <h3>Understanding Your Contract Details</h3>
+               <img class="responsive-img" style="max-width:600px" alt="Contract must include" src={% static 'images/2.PAO_contract_includes.png' %}>
 
         <p>Your contract should include information about:</p>
 
@@ -107,34 +110,9 @@
     <div class="topic-section">
         <h3>Termination of Contract and Resignation</h3>
 
-        <div class="important-note">
-            <p><strong>✅ You can resign even if you don't have a contract.</strong></p>
-        </div>
-
         <h4>How to Resign - Step by Step</h4>
 
-        <div class="steps-container">
-            <div class="step">
-                <p><strong>Step 1:</strong> Write a resignation letter</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 2:</strong> Give the letter to your employer</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 3:</strong> Your employer confirms in writing that they received the resignation letter</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 4:</strong> Your employer signs a "No Objection Certificate" (NOC) to officially allow your resignation</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 5:</strong> Your employer pays for your flight back home</p>
-            </div>
-        </div>
-        <!-- Image: Resignation process flowchart -->
+    <img class="responsive-img" style="max-width:auto" alt="Resigning procedure" src={% static 'images/2.PAO_resign.png' %}>
     </div>
 
     <!-- Topic 5: Changing Employer -->
@@ -142,28 +120,7 @@
         <h3>Changing Your Employer</h3>
 
         <p>If you want to change your employer, here are the steps to follow:</p>
-
-        <div class="steps-container">
-            <div class="step">
-                <p><strong>Step 1:</strong> Write a resignation letter</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 2:</strong> Give the letter to your employer</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 3:</strong> Your employer confirms in writing that they received the resignation letter</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 4:</strong> Your employer signs a "No Objection Certificate" (NOC) to allow your resignation</p>
-            </div>
-
-            <div class="step">
-                <p><strong>Step 5:</strong> Your employer arranges for the change of employment through LMRA</p>
-            </div>
-        </div>
+    <img class="responsive-img" style="max-width:auto" alt="Changing employer steps" src={% static 'images/2.PAO_change_emp.png' %}>
 
         <div class="important-note">
             <p><strong>⚠️ Note:</strong> LMRA might allow your transfer without your employer's permission in certain situations.</p>
@@ -172,7 +129,6 @@
         <div class="tip-box">
             <p><strong>💡 Need advice?</strong> Call LMRA, your employment agency, or your embassy.</p>
         </div>
-        <!-- Image: NOC certificate or LMRA logo -->
     </div>
 
     <!-- Topic 6: Notice Period -->
@@ -182,17 +138,17 @@
         <div class="notice-rules">
             <div class="rule-item">
                 <p><strong>📅 30 Days Notice</strong></p>
-                <p>If you want to resign, you must inform your employer at least <strong>30 days in advance in writing</strong>.</p>
+                <p>If you want to resign, you must inform your employer at least <strong>30 days in advance in writing.</strong></p>
             </div>
 
             <div class="rule-item">
                 <p><strong>💵 If you fail to give notice</strong></p>
-                <p>You must pay your employer compensation equal to <strong>one month of your wages</strong>.</p>
+                <p>You must pay your employer compensation equal to <strong>one month of your wages.</strong></p>
             </div>
 
             <div class="rule-item">
                 <p><strong>💵 If your employer fails to give you notice</strong></p>
-                <p>They must pay you compensation equal to <strong>one month of your wages</strong>.</p>
+                <p>They must pay you compensation equal to <strong>one month of your wages.</strong></p>
             </div>
         </div>
         <!-- Image: Calendar showing 30 days -->
@@ -208,9 +164,7 @@
             <div class="exception-item">
                 <p><strong>1. Assault</strong></p>
                 <p>Your employer or anyone acting on their behalf assaults you (including verbal assault)</p>
-            </div>
 
-            <div class="exception-item">
                 <p><strong>2. Inappropriate Behavior</strong></p>
                 <p>Inappropriate behavior by your employer or anyone acting on their behalf</p>
             </div>
@@ -230,6 +184,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}

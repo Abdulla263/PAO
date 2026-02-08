@@ -1,5 +1,6 @@
-
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 <div class="module-nav">
   <a href="{% url 'detail' 2 %}">
@@ -17,10 +18,19 @@
     <div class="topic-section">
         <h3>Who is a Domestic Worker?</h3>
         <p>A domestic worker is anyone who works in a house, whether full time or part time. As a domestic worker, you will make a positive impact on your employer, their family, and Bahraini society.</p>
+        <div class="worker-characters">
+              <img src="{% static 'images/char_jasim.png' %}" alt="Worker 1" class="worker-char">
+              <img src="{% static 'images/char_kumari.png' %}" alt="Worker 2" class="worker-char">
+              <img src="{% static 'images/char_elvi.png' %}" alt="Worker 3" class="worker-char">
+            </div>
     </div>
 
     <!-- Topic 2: Bahrain Map & Locations -->
     <div class="topic-section">
+
+    <img class="responsive-img" alt="Map of Bahrain" src={% static 'images/1.PAO_bah_map.png' %}>
+        <br>
+        <br>
         <h3>About Bahrain</h3>
         <p>Bahrain is divided into several governorates:</p>
         <ul>
@@ -38,11 +48,12 @@
             <li>Bahrain International Circuit</li>
             <li>Shaikh Salman bin Ahmed Fort</li>
         </ul>
-        <!-- Image: Bahrain map showing governorates -->
     </div>
 
     <!-- Topic 3: Weather -->
     <div class="topic-section">
+            <img class="responsive-img" style="max-width:500px" alt="Bahraini Weather" src={% static 'images/1.PAO_weather.png' %}>
+        <br>
         <h3>Weather</h3>
         <p>Bahrain's weather ranges from around <strong>16 degrees Celsius</strong> in the winters to around <strong>48 degrees Celsius</strong> in the summers.</p>
         <div class="tip-box">
@@ -53,6 +64,7 @@
 
     <!-- Topic 4: Clothing -->
     <div class="topic-section">
+        <img class="responsive-img"  alt="Bahraini Clothing" src={% static 'images/1.PAO_clothing.png' %}>
         <h3>Clothing</h3>
         <p>In Bahrain, you will see people dress in traditional clothing such as <strong>thobe</strong> and <strong>abaya</strong>, as well as other kinds of clothing. Bahrain is a diverse country where various styles of dress are common.</p>
         <!-- Image: People in traditional Bahraini clothing -->
@@ -60,6 +72,8 @@
 
     <!-- Topic 5: Food -->
     <div class="topic-section">
+        <img class="responsive-img"  alt="Bahraini Food" src={% static 'images/1.PAO_food.png' %}>
+
         <h3>Food</h3>
         <p><strong>Traditional Bahraini food includes:</strong></p>
         <ul>
@@ -80,6 +94,8 @@
 
         <h4>Ramadan</h4>
         <p>Muslims observe the holy month of Ramadan once a year, where they fast from sunrise to sunset. During the hours of fasting, eating, drinking and smoking is not permitted in public places.</p>
+                <img class="responsive-img"  alt="Ramadan timings" src={% static 'images/1.PAO_ramadan.png' %}>
+
         <!-- Image: Mosque or religious symbols -->
     </div>
 
@@ -99,6 +115,8 @@
 
     <!-- Topic 8: Public Transport -->
     <div class="topic-section">
+    <img class="responsive-img" style="max-width:600px" alt="Bahrain Bus" src={% static 'images/1.PAO_bus.png' %}>
+
         <h3>Public Transport</h3>
         <p>You can purchase a <strong>GO Card</strong> for <strong>500 fils</strong> (as of May 2023) to use public buses in Bahrain.</p>
 

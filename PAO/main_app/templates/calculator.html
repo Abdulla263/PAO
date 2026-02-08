@@ -1,39 +1,52 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Indemnity Calculator</h1>
+<div class="calculator-container">
+    <div class="calculator-header">
+        <h1>Indemnity Calculator</h1>
         <p><strong>What is indemnity?</strong></p>
         <p>Indemnity is extra money you receive when you leave your employer. It is based on your last salary and how long you worked for your employer.</p>
-
-        <div class="important-note">
+        <div class="important-note" style="margin-top: var(--spacing-md);">
             <p><strong>💰 Indemnity is added to your wage when you leave your job.</strong></p>
         </div>
-<hr>
-<br>
+    </div>
 
-<form method="POST">
-  {% csrf_token %}
+    <form method="POST" class="calculator-form">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="salary">Last Salary (BHD):</label>
+                <input type="number" id="salary" name="salary" step="0.1" required placeholder="Enter your last salary">
+            </li>
 
-    <li>Last Salary (BHD):
-    <input type="number" id="salary" name="salary" step="0.1" required></li>
-<br>
-    <li>Total Number of Months Worked:
-    <input type="number" id="months" name="months" required></li>
-<br>
-    <button type="submit">Calculate Indemnity</button>
-</form>
+            <li>
+                <label for="months">Total Number of Months Worked:</label>
+                <input type="number" id="months" name="months" required placeholder="Enter total months worked">
+            </li>
+        </ul>
 
-{% if notify %}
-  <div class="notify-container">
-    <h3 style="color: red">{{ notify }}</h3>
-    <p>For more information, visit the official Social Insurance Organization's FAQs: <a href="https://www.sio.gov.bh/en/end-of-service-gratuity-for-non-bahrainis#:~:text=How%20is%20end%20of%20service%20gratuity%20calculated?,salary%20for%20each%20year%20of%20service%20thereafter.">End Of Service Gratuity for non-Bahrainis</a>
-  </div>
-{% endif %}
-<br>
+        <button type="submit">Calculate Indemnity</button>
+    </form>
 
-<h2>Your Total Indemnity:</h2>
-<div class="indemnity-container">
-  <h2 style="color: green">BHD {{indemnity|floatformat:1}}</h2>
+    {% if notify %}
+    <div class="notify-container">
+        <h3>{{ notify }}</h3>
+        <p>For more information, visit the official Social Insurance Organization's FAQs:
+            <a href="https://www.sio.gov.bh/en/end-of-service-gratuity-for-non-bahrainis#:~:text=How%20is%20end%20of%20service%20gratuity%20calculated?,salary%20for%20each%20year%20of%20service%20thereafter." target="_blank">
+                End Of Service Gratuity for non-Bahrainis
+            </a>
+        </p>
+    </div>
+    {% endif %}
+
+    {% if indemnity %}
+    <div>
+        <h2 style="text-align: center; color: var(--primary-navy); margin-top: var(--spacing-lg);">Your Total Indemnity:</h2>
+        <div class="indemnity-container">
+            <h2>BHD {{ indemnity|floatformat:1 }}</h2>
+        </div>
+    </div>
+    {% endif %}
 </div>
+
 {% endblock %}

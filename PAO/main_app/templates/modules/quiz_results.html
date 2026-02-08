@@ -1,42 +1,46 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Quiz Results</h1>
 
-<hr>
-<h2>Module {{ module.id }}: {{ module.title }}</h2>
-<h3>by {{ quiz.user.username }} at {{ quiz.timestamp }} </h3>
-<h2>You scored {{ quiz.score }} out of {{ total }}. </h2>
-<h2>{{ percentage }}%</h2>
+<div class="results-container">
+    <div class="results-header">
+        <h1>Quiz Results</h1>
+        <h2>Module {{ module.id }}: {{ module.title }}</h2>
+        <h3>Completed by {{ quiz.user.username }} on {{ quiz.timestamp|date:"F d, Y \a\t g:i A" }}</h3>
+    </div>
 
-<div class="quiz-nav">
-    <a href="{% url 'detail' module.id %}">
-        <button>⬅️ Back to Module</button>
-    </a>
+    <div class="score-display">
+        <p style="color: var(--secondary-gray); margin-bottom: 10px; font-size: 1.1rem;">You scored</p>
+        <h2>{{ quiz.score }} / {{ total }}</h2>
+        <h2 style="font-size: 4rem; margin-top: 10px;">{{ percentage }}%</h2>
+    </div>
 
-    <a href="{% url 'quiz' module.id %}">
-        <button>🔁 Retake Quiz</button>
-    </a>
+    <div class="quiz-nav">
+        <a href="{% url 'detail' module.id %}">
+            <button>⬅️ Back to Module</button>
+        </a>
+        <a href="{% url 'quiz' module.id %}">
+            <button>🔁 Retake Quiz</button>
+        </a>
+    </div>
+
+    <h2 style="text-align: center; margin: var(--spacing-xl) 0 var(--spacing-md); color: var(--primary-navy);">Answer Review</h2>
+
+    {% for response in responses %}
+    <div class="answer-review">
+        <b>{{ forloop.counter }}. {{ response.question.text }}</b>
+        <ul>
+            {% for answer in response.question.answers.all %}
+            {% if answer.is_correct %}
+            <li style="color: green">{{ answer.text }} ✅</li>
+            {% elif answer.id == response.selected_answer.id %}
+            <li style="color: red">{{ answer.text }} ❌</li>
+            {% else %}
+            <li>{{ answer.text }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
 </div>
-<hr>
-<br>
-{% for response in responses %}
-  <div>
-    <b>{{ forloop.counter }}. {{ response.question.text }}</b>
-    <ul>
-      {% for answer in response.question.answers.all %}
-        {% if answer.is_correct %}
-          <li style="color: green">{{ answer.text }} ✅</li>
-        {% elif answer.id == response.selected_answer.id %}
-          <li style="color: red">{{ answer.text }} ❌</li>
-        {% else %}
-          <li>{{ answer.text }}</li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-  <br>
-  {% endfor %}
 
 {% endblock %}
-
