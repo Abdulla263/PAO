@@ -6,13 +6,14 @@
     <!-- LEFT PANEL: User Profile -->
     <aside class="user-profile-panel">
         <div class="user-avatar">
-    {% if user.profile.image %}
-        <img src={{ user.profile.image.url }} alt="Profile Image">
-    {% else %}
-        <div class="no-user-avatar">
-    {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+        {% if user.profile.image %}
+        <img style="max-width: auto" src={{ user.profile.image.url }} alt="Profile Image">
         </div>
-    {% endif %}
+        {% else %}
+        <div class="no-user-avatar">
+        {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+        </div>
+        {% endif %}
 </div>
 
         <div class="user-info">
@@ -45,6 +46,10 @@
                             {% csrf_token %}
                             <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
                         </form>
+                        <form method="post" action="{% url 'generate-pdf' user.id %}">
+    {% csrf_token %}
+    <button class="btn btn-secondary btn-small btn-full" type="submit">Download PDF</button>
+</form>
     </aside>
 
     <!-- CENTER PANEL: Main Dashboard -->
