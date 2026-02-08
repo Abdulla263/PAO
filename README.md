@@ -24,5 +24,8 @@ Our e-learning platform bridges the gap between domestic workers and crucial inf
 -	The website will also have a dedicated AI help bot that can guide the user with their questions.
 -	Additionally, the website will include an About page and a dedicated Helpline page with all the important numbers and emergency lines.
 
+## Wireframe
+
+![Project Wireframe](./PAO/main_app/static/images/PAO_Wireframe.jpg)
 
 ### MORE TO COME
