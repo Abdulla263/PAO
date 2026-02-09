@@ -25,8 +25,7 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ('user',)
-
+        fields = ['cpr', 'phone', 'nationality', 'address', 'image']
 
 class QuestionForm(forms.ModelForm):
     class Meta:

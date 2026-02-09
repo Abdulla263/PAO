@@ -4,9 +4,15 @@
 {% block content %}
 <h2>Edit Profile</h2>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form.as_table }}
+
+  {% if form.instance.image %}
+      <p>Current image:</p>
+      <img src="{{ form.instance.image.url }}" width="150" alt="Profile Image">
+  {% endif %}
+
   <button type="submit">Save Changes</button>
 </form>
 {% endblock %}

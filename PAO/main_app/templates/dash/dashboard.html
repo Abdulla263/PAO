@@ -6,8 +6,14 @@
     <!-- LEFT PANEL: User Profile -->
     <aside class="user-profile-panel">
         <div class="user-avatar">
-            {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
-        </div>
+    {% if user.profile.image %}
+        <img src="{{ user.profile.image.url }}" alt="Profile Image">
+    {% else %}
+        {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+    {% endif %}
+</div>
+
+
         <div class="user-info">
             <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
             <div class="user-email">{{ user.email }}</div>
@@ -19,7 +25,7 @@
             </div>
             <div class="stat-item">
                 <span class="stat-label">Nationality</span>
-                <span class="stat-value">{{ user.profile.nationality }}</span>
+                <span class="stat-value">{{ user.profile.get_nationality_display }}</span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">CPR</span>
@@ -27,17 +33,21 @@
             </div>
             <div class="stat-item">
                 <span class="stat-label">Address</span>
-                <span class="stat-value">{{ notes|length }}</span>
+                <span class="stat-value">{{ user.profile.address }}</span>
             </div>
             <form action="{% url 'ProfileEdit' %}" method="post" >
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary btn-small btn-full">Edit Profile</button>
             </form>
         </div>
-        <form method="post" action="{% url 'logout' %}" >
-            {% csrf_token %}
-                <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
-        </form>
+               <form method="post" action="{% url 'logout' %}" >
+                            {% csrf_token %}
+                            <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
+                        </form>
+                        <form method="post" action="{% url 'generate-pdf' user.id %}">
+    {% csrf_token %}
+    <button class="btn btn-secondary btn-small btn-full" type="submit">Download Progress</button>
+</form>
     </aside>
 
     <!-- CENTER PANEL: Main Dashboard -->

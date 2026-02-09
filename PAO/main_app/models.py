@@ -3,33 +3,49 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from datetime import datetime
 from django.core.validators import RegexValidator
+import json
+import os
+from django.conf import settings
+
+
+# Define the path to your JSON file
+json_file_path = os.path.join(settings.BASE_DIR, 'main_app', 'countries.json')
+
+# Load the JSON data into a variable
+with open(json_file_path, 'r') as file:
+    nationalities_data = json.load(file)
+
+# Create the choices from the loaded data
+countries = [(country[0], country[1]) for country in nationalities_data['NATIONALITY']]
 
 # Create your models here.
 
-NATIONALITY = [
-    ('BH', 'Bahraini'),
-    ('SA', 'Saudi'),
-    ('KW', 'Kuwaiti'),
-    ('AE', 'Emirati'),
-    ('OM', 'Omani'),
-    ('QA', 'Qatari'),
-    ('OTHER', 'Other'),
-]
+# NATIONALITY = [
+#     ('BH', 'Bahraini'),
+#     ('SA', 'Saudi'),
+#     ('KW', 'Kuwaiti'),
+#     ('AE', 'Emirati'),
+#     ('OM', 'Omani'),
+#     ('QA', 'Qatari'),
+#     ('OTHER', 'Other'),
+# ]
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     cpr = models.CharField(
         max_length=9,
         validators=[RegexValidator(regex=r'^\d{9}$', message='CPR must be exactly 9 digits')],
-        null=True
+        null=True,
+        unique=True,
     )
     phone = models.CharField(
         max_length=20,
         validators=[RegexValidator(regex=r'^\d+$', message='Phone number must contain digits only')],
         blank=True
     )
-    nationality = models.CharField(max_length=10, choices=NATIONALITY, null=True)
-    image = models.ImageField(upload_to='main_app/static/uploads/', default='')
+    nationality = models.CharField(max_length=10, choices=countries, null=True)
+    image = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    address = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.user.username
