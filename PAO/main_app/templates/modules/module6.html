@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="module-nav">
@@ -19,6 +21,7 @@
 
     <!-- Topic 1: Recruitment Fees -->
     <div class="topic-section">
+
         <h3>Recruitment Fees</h3>
 
         <div class="critical-info">
@@ -34,6 +37,7 @@
         <div class="action-box">
             <p><strong>📞 If you are being asked to pay for any of these services, call 995 immediately.</strong></p>
         </div>
+        <img class="responsive-img" style="max-width:500px" alt="Wage delays" src={% static 'images/6.PAO_fees.png' %}>
 
         <h4>Services You Should NOT Pay For:</h4>
         <ul>
@@ -48,12 +52,15 @@
     </div>
 
     <!-- Topic 2: Annual Leave -->
+
     <div class="topic-section">
+
         <h3>Annual Leave</h3>
 
         <div class="important-note">
             <p><strong>✓ You are entitled to 2.5 days of paid leave per month.</strong></p>
         </div>
+        <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/6.PAO_leave.png' %}>
 
         <h4>How Annual Leave Works:</h4>
         <p>After one year of work, you will have accumulated <strong>30 days of paid leave</strong>.</p>
@@ -90,6 +97,7 @@
         <div class="critical-warning">
             <p><strong>⚠️ IMPORTANT:</strong> Your employer is <strong>NOT allowed</strong> to take your passport or CPR (ID card).</p>
         </div>
+        <img class="responsive-img" style="max-width:500px" alt="Wage delays" src={% static 'images/6.PAO_retention.png' %}>
 
         <h4>Your Rights:</h4>
         <ul>
@@ -242,10 +250,12 @@
     <!-- Topic 7: Being Absent from Work -->
     <div class="topic-section">
         <h3>Rules About Being Absent from Work</h3>
+                    <img class="responsive-img" style="max-width:300px" alt="Wage delays" src={% static 'images/6.PAO_absence.png' %}>
 
         <div class="critical-warning">
             <p><strong>⚠️ ILLEGAL ABSENCES:</strong></p>
             <p>It is illegal to be absent from work:</p>
+
             <ul>
                 <li>For <strong>10 days continuously</strong> without a valid reason, OR</li>
                 <li>For <strong>20 days in a year</strong> without a valid reason</li>
@@ -319,6 +329,7 @@
 
         <h4>What is Irregular Status?</h4>
         <p>You have an irregular immigration status if:</p>
+                    <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/6.PAO_status.png' %}>
 
         <div class="irregular-situations">
             <div class="situation-item">
@@ -344,6 +355,7 @@
         <h3>Risks of Breaking Immigration Rules</h3>
 
         <p>The risks of breaking these rules could include:</p>
+                    <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/6.PAO_risks.png' %}>
 
         <div class="risks-grid">
             <div class="risk-item">
@@ -393,6 +405,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}

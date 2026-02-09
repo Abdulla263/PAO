@@ -1,5 +1,7 @@
 
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="module-nav">
@@ -24,38 +26,7 @@
 
         <p>If you have signed a tripartite contract, your employer must provide you with:</p>
 
-        <div class="employer-obligations">
-            <div class="obligation-item">
-                <p><strong>🏠 Suitable Accommodation</strong></p>
-                <p>A safe and appropriate place to live</p>
-            </div>
-
-            <div class="obligation-item">
-                <p><strong>👕 Clothes</strong></p>
-                <p>Appropriate clothing for your work</p>
-            </div>
-
-            <div class="obligation-item">
-                <p><strong>🍽️ Food</strong></p>
-                <p>Adequate and nutritious meals</p>
-            </div>
-
-            <div class="obligation-item">
-                <p><strong>🦺 Protective Equipment</strong></p>
-                <p>Safety gear needed for your work (such as rubber gloves for cleaning)</p>
-            </div>
-
-            <div class="obligation-item">
-                <p><strong>🏥 Health Care</strong></p>
-                <p>Medical care and health insurance</p>
-            </div>
-
-            <div class="obligation-item">
-                <p><strong>📞 Regular Contact with Your Family</strong></p>
-                <p>The ability to call and communicate with your family over the phone</p>
-            </div>
-        </div>
-        <!-- Image: Icons representing each provision -->
+            <img class="responsive-img" style="max-width:auto" alt="What Your Employer Must Give You" src={% static 'images/3.PAO_musts.png' %}>
     </div>
 
     <!-- Topic 2: Your Rights Even Without a Contract -->
@@ -242,10 +213,9 @@
         </div>
 
         <div class="emergency-contact">
-            <p><strong>📞 Emergency Contact: 995</strong></p>
-            <p>Available 24/7 in 12 languages</p>
+            <h3><strong>📞 Emergency Contact: 995</strong></h3>
+            <b>Available 24/7 in 12 languages</b>
         </div>
-        <!-- Image: Help/support symbol -->
     </div>
 
 
@@ -256,6 +226,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}

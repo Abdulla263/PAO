@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="module-nav">
@@ -19,6 +21,7 @@
 
     <!-- Topic 1: Wage Payment -->
     <div class="topic-section">
+        <img class="responsive-img" style="max-width:350px" alt="Kitchen safety" src={% static 'images/5.PAO_wages.png' %}>
         <h3>Understanding Your Wages</h3>
 
         <div class="important-note">
@@ -53,6 +56,7 @@
         <h3>How You Can Receive Your Wages</h3>
 
         <p>There are three ways you can receive your wages:</p>
+        <img class="responsive-img" style="max-width:auto" alt="Kitchen safety" src={% static 'images/5.PAO_methods.png' %}>
 
         <div class="payment-methods">
             <div class="method-item">
@@ -100,16 +104,12 @@
         </ul>
 
         <p><strong>Learn more:</strong> Visit <a href="https://benefit.bh/personal/benefitpay/" target="_blank">benefit.bh/personal/benefitpay/</a></p>
-        <!-- Image: Bank building or BenefitPay logo -->
     </div>
 
     <!-- Topic 4: Wage Delays and Compensation -->
     <div class="topic-section">
         <h3>What Happens If Your Wages Are Delayed</h3>
-
-        <div class="critical-info">
-            <p><strong>⚠️ If you have not been paid the wages you are due, call 995 (LMRA).</strong></p>
-        </div>
+        <img class="responsive-img" style="max-width:600px" alt="Wage delays" src={% static 'images/5.PAO_delays.png' %}>
 
         <h4>Compensation for Wage Delays</h4>
         <p>If your wages are delayed, you are entitled to compensation:</p>
@@ -125,7 +125,11 @@
                 <p>If the delay is longer than six months, compensation increases by <strong>1% for each additional month</strong> of delay.</p>
                 <p><strong>Maximum:</strong> Cannot exceed <strong>12% of your wage per year</strong>.</p>
             </div>
+                    <div class="critical-info">
+            <p><strong>⚠️ If you have not been paid the wages you are due, call 995 (LMRA).</strong></p>
         </div>
+        </div>
+        <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/5.PAO_compensation.png' %}>
 
         <h4>How Compensation Works</h4>
 
@@ -180,6 +184,7 @@
         </div>
 
         <h4>How Indemnity is Calculated</h4>
+        <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/5.PAO_indemnity.png' %}>
 
         <div class="indemnity-rates">
             <div class="rate-item">
@@ -192,7 +197,8 @@
                 <p>Indemnity calculated at <strong>8.32% per month</strong> of employment after the third year</p>
             </div>
         </div>
-        <!-- Image: Calculator or money calculation -->
+        <br>
+        <a class="btn-quiz small" href="{% url 'calculator' %}">Indemnity Calculator</a>
     </div>
 
     <!-- Topic 6: Indemnity Examples -->
@@ -238,8 +244,7 @@
         <div class="note-box">
             <p><em>*All figures are rounded up to the nearest decimal</em></p>
         </div>
-        <!-- Image: Money/calculation illustration -->
-    </div>
+\    </div>
 
     <!-- Topic 7: When You Receive Indemnity -->
     <div class="topic-section">
@@ -265,6 +270,8 @@
 
     <!-- Topic 8: Transferring Money -->
     <div class="topic-section">
+                <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/5.PAO_remittance.png' %}>
+
         <h3>Transferring Money Home</h3>
 
         <p>If you have a valid residency permit and ID, you can transfer money through several services:</p>
@@ -299,6 +306,8 @@
 
     <!-- Topic 9: Financial Scams -->
     <div class="topic-section">
+                        <img class="responsive-img" style="max-width:auto" alt="Wage delays" src={% static 'images/5.PAO_scams.png' %}>
+
         <h3>Protecting Yourself from Financial Scams</h3>
 
         <div class="warning-box">
@@ -390,6 +399,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}
