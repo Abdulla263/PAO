@@ -290,9 +290,10 @@ nav a:hover {
     border-radius: var(--radius-lg);
     padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
-    height: fit-content;
     position: sticky;
     top: 100px;
+    height: max-content;
+
 }
 
 .user-avatar {
@@ -308,7 +309,16 @@ nav a:hover {
     font-size: 3rem;
     font-weight: 700;
     border: 4px solid var(--primary-beige);
+    overflow: hidden;
 }
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 
 .no-user-avatar {
     width: 120px;
@@ -363,6 +373,8 @@ nav a:hover {
 .stat-value {
     color: var(--primary-navy);
     font-weight: 600;
+    max-width: 3cm;
+    word-wrap: break-word;
 }
 
 /* Center Panel - Main Dashboard */

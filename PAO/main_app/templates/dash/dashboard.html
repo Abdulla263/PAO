@@ -6,15 +6,13 @@
     <!-- LEFT PANEL: User Profile -->
     <aside class="user-profile-panel">
         <div class="user-avatar">
-        {% if user.profile.image %}
-        <img style="max-width: auto" src={{ user.profile.image.url }} alt="Profile Image">
-        </div>
-        {% else %}
-        <div class="no-user-avatar">
+    {% if user.profile.image %}
+        <img src="{{ user.profile.image.url }}" alt="Profile Image">
+    {% else %}
         {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
-        </div>
-        {% endif %}
+    {% endif %}
 </div>
+
 
         <div class="user-info">
             <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
