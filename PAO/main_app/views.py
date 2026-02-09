@@ -204,7 +204,10 @@ def calculator(request):
         elif months <= 36:
             indemnity = salary * 0.0416 * months
         else:
-            indemnity = (salary * 0.416 * 36) + (salary * 0.0832) * (months - 36)
+            first_part = salary * 0.0416 * 36
+            remaining_months = months - 36
+            second_part = salary * 0.0832 * remaining_months
+            indemnity = first_part + second_part
 
     return render(request, 'calculator.html', {"indemnity": indemnity, "notify": notify})
 

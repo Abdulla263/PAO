@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="module-nav">
@@ -16,6 +18,8 @@
 
     <!-- Topic 1: Emergency Contact - 999 -->
     <div class="topic-section">
+                <img class="responsive-img" style="max-width:300px" alt="Wage delays" src={% static 'images/7.PAO_call.png' %}>
+
         <h3>Emergency Contact: 999</h3>
 
         <div class="emergency-header">
@@ -411,6 +415,8 @@
 
     <!-- Topic 9: Health Centres -->
     <div class="topic-section">
+                        <img class="responsive-img" style="max-width:370px" alt="Wage delays" src={% static 'images/7.PAO_hospital.png' %}>
+
         <h3>Health Centres in Bahrain</h3>
 
         <p>Here is a comprehensive list of health centres throughout Bahrain where you can receive medical care:</p>
@@ -592,6 +598,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}

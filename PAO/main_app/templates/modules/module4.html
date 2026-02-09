@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="module-nav">
@@ -24,7 +26,7 @@
         <div class="important-note">
             <p><strong>💡 Remember: Your employer must pay for your health care.</strong></p>
         </div>
-
+        <img class="responsive-img" style="max-width:250px" alt="Feeling sick" src={% static 'images/4.PAO_sick.png' %}>
         <h4>When You're Sick</h4>
         <p>If you're sick, your employer must consider and respect your health needs. Here's what to do:</p>
 
@@ -54,10 +56,9 @@
     <!-- Topic 2: Women's Health -->
     <div class="topic-section">
         <h3>Women's Health</h3>
-
         <h4>Menstrual Health</h4>
         <p>Sanitary products like pads, pantyliners, and tampons can be found in most supermarkets.</p>
-
+        <img class="responsive-img" style="max-width:250px" alt="Sanitary products" src={% static 'images/4.PAO_sanitary.png' %}>
         <div class="tip-box">
             <p><strong>💡 Tip:</strong> If you need these products, you can purchase them at local supermarkets or ask your employer for assistance.</p>
         </div>
@@ -71,6 +72,7 @@
         <div class="critical-warning">
             <p><strong>⚠️ IMPORTANT INFORMATION:</strong></p>
             <p>If you are <strong>unmarried</strong> and get pregnant while working in Bahrain, you may risk losing your job and may not be able to continue working in the country. You won't get any notice from your employer.</p>
+             <img class="responsive-img" style="max-width:auto" alt="Sanitary products" src={% static 'images/4.PAO_deport.png' %}>
         </div>
         <!-- Image: Pregnancy/health symbol -->
     </div>
@@ -119,6 +121,7 @@
         <h3>Occupational Health and Safety in the Workplace</h3>
 
         <h4>Working with Bleaches and Cleaning Products</h4>
+          <img class="responsive-img" style="max-width:auto" alt="Working with different products" src={% static 'images/4.PAO_products.png' %}>
 
         <div class="safety-guidelines">
             <div class="guideline-item">
@@ -127,14 +130,15 @@
             </div>
 
             <div class="guideline-item">
+                <p><strong>⚠️ Watch for Allergic Reactions</strong></p>
+                <p>If you have an allergic reaction, tell your employer immediately</p>
+            </div>
+
+            <div class="guideline-item">
                 <p><strong>📖 Read Instructions</strong></p>
                 <p>Carefully read the instructions on cleaning products before using them</p>
             </div>
 
-            <div class="guideline-item">
-                <p><strong>⚠️ Watch for Allergic Reactions</strong></p>
-                <p>If you have an allergic reaction, tell your employer immediately</p>
-            </div>
         </div>
 
         <div class="warning-box">
@@ -183,7 +187,7 @@
     <!-- Topic 7: Driving Safety -->
     <div class="topic-section">
         <h3>Driving Safety</h3>
-
+          <img class="responsive-img" style="max-width:auto" alt="Driving in Bahrain" src={% static 'images/4.PAO_driving.png' %}>
         <p>If you need to drive as part of your work, follow these important safety rules:</p>
 
         <div class="driving-rules">
@@ -222,18 +226,24 @@
 
         <div class="kitchen-safety">
             <div class="safety-item">
+
                 <p><strong>🔪 Sharp Objects</strong></p>
                 <p>Be careful when using sharp objects or edges like knives, scissors, and broken glass</p>
+                                 <img class="responsive-img" style="max-width:auto" alt="Kitchen safety" src={% static 'images/4.PAO_kitchen_safety2.png' %}>
             </div>
 
             <div class="safety-item">
+
                 <p><strong>🔥 Hot Surfaces</strong></p>
                 <p>Avoid touching hot surfaces and boiling water. Use oven mitts and potholders</p>
+                                <img class="responsive-img" style="max-width:auto" alt="Kitchen safety" src={% static 'images/4.PAO_kitchen_safety1.png' %}>
             </div>
 
             <div class="safety-item">
+
                 <p><strong>🧼 Hand Hygiene</strong></p>
                 <p>Wash your hands frequently and especially after handling raw meat and other food items</p>
+                    <img class="responsive-img" style="max-width:auto" alt="Kitchen safety" src={% static 'images/4.PAO_kitchen_safety3.png' %}>
             </div>
         </div>
 
@@ -289,6 +299,6 @@
         </a>
     </div>
   {% endif %}
-  
+
 </div>
 {% endblock %}
