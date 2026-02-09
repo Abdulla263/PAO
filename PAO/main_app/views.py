@@ -215,11 +215,9 @@ def calculator(request):
 
 @login_required
 def generate_pdf_view(request, user_id):
-    try:
-        profile = Profile.objects.get(user__id=user_id)
-    except Profile.DoesNotExist:
-        return HttpResponse("Profile not found for this user", status=404)
 
+    # Profile is guaranteed to exist
+    profile = Profile.objects.get(user__id=user_id)
     user = profile.user
 
     # Fetch all modules
@@ -228,13 +226,18 @@ def generate_pdf_view(request, user_id):
     # Prepare module scores (last quiz for this user)
     module_scores = []
     for module in modules:
-        quiz = Quiz.objects.filter(user=user, module=module).order_by('-timestamp').first()
+        quiz = Quiz.objects.filter(
+            user=user,
+            module=module
+        ).order_by('-timestamp').first()
+
         if quiz:
             total_questions = quiz.responses.count()
             percentage = int((quiz.score / total_questions) * 100) if total_questions > 0 else 0
         else:
             percentage = 0
-        module_scores.append((module.title, percentage))
+
+        module_scores.append((module.id, module.title, percentage))
 
     # Create PDF buffer
     buffer = io.BytesIO()
@@ -244,14 +247,10 @@ def generate_pdf_view(request, user_id):
 
     # Draw profile image if exists
     if profile.image:
-        try:
-            # Resize image to 80x80 and place at (100, y-80)
-            img = ImageReader(profile.image.path)
-            p.drawImage(img, 100, y - 80, width=80, height=80)
-        except Exception as e:
-            print("Error loading image:", e)
+        img = ImageReader(profile.image.path)
+        p.drawImage(img, 100, y - 80, width=80, height=80)
 
-    # Shift text to the right if image is there
+    # Shift text to the right if image exists
     text_x = 200 if profile.image else 100
 
     # Header: user info
@@ -269,9 +268,15 @@ def generate_pdf_view(request, user_id):
     # Module quiz scores
     p.drawString(text_x, y, "Your Quiz Scores:")
     y -= 20
-    for title, score in module_scores:
-        p.drawString(text_x + 20, y, f"{title}: {score}%")
+
+    for module_id, title, score in module_scores:
+        p.drawString(
+            text_x + 20,
+            y,
+            f"Module {module_id}: {title} — {score}%"
+        )
         y -= 20
+
         if y < 50:
             p.showPage()
             y = 750
@@ -281,5 +286,9 @@ def generate_pdf_view(request, user_id):
     p.save()
     buffer.seek(0)
 
-    return FileResponse(buffer, as_attachment=True, filename=f'{user.first_name}_report.pdf')
+    return FileResponse(
+        buffer,
+        as_attachment=True,
+        filename=f'{user.first_name}_report.pdf'
+    )
 
