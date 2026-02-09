@@ -7,13 +7,12 @@
     <aside class="user-profile-panel">
         <div class="user-avatar">
     {% if user.profile.image %}
-        <img src={{ user.profile.image.url }} alt="Profile Image">
+        <img src="{{ user.profile.image.url }}" alt="Profile Image">
     {% else %}
-        <div class="no-user-avatar">
-    {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
-        </div>
+        {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
     {% endif %}
 </div>
+
 
         <div class="user-info">
             <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
@@ -45,6 +44,10 @@
                             {% csrf_token %}
                             <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
                         </form>
+                        <form method="post" action="{% url 'generate-pdf' user.id %}">
+    {% csrf_token %}
+    <button class="btn btn-secondary btn-small btn-full" type="submit">Download PDF</button>
+</form>
     </aside>
 
     <!-- CENTER PANEL: Main Dashboard -->

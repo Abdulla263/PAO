@@ -25,6 +25,7 @@ urlpatterns = [
     path('note/<int:pk>/delete/', views.DeleteNote.as_view(), name='delete_note'),
 
     path('calculator/', views.calculator, name="calculator"),
+    path('generate-pdf/<int:user_id>/', views.generate_pdf_view, name='generate-pdf')
 ]
 
 if settings.DEBUG:

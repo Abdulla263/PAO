@@ -8,6 +8,11 @@ from django.views.generic import ListView, DetailView
 from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer , Note
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 
 # Create your views here.
 
@@ -166,7 +171,7 @@ class ProfileEdit(LoginRequiredMixin,UpdateView):
         return Profile.objects.get(user=self.request.user)
 
     def get_success_url(self):
-        return 'dashboard'
+        return '/dashboard/'
 
 
 
@@ -204,3 +209,76 @@ def calculator(request):
             indemnity = (salary * 0.416 * 36) + (salary * 0.0832) * (months - 36)
 
     return render(request, 'calculator.html', {"indemnity": indemnity, "notify": notify})
+
+
+
+@login_required
+def generate_pdf_view(request, user_id):
+    try:
+        profile = Profile.objects.get(user__id=user_id)
+    except Profile.DoesNotExist:
+        return HttpResponse("Profile not found for this user", status=404)
+
+    user = profile.user
+
+    # Fetch all modules
+    modules = Module.objects.all().order_by("id")
+
+    # Prepare module scores (last quiz for this user)
+    module_scores = []
+    for module in modules:
+        quiz = Quiz.objects.filter(user=user, module=module).order_by('-timestamp').first()
+        if quiz:
+            total_questions = quiz.responses.count()
+            percentage = int((quiz.score / total_questions) * 100) if total_questions > 0 else 0
+        else:
+            percentage = 0
+        module_scores.append((module.title, percentage))
+
+    # Create PDF buffer
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer, pagesize=letter)
+
+    y = 750
+
+    # Draw profile image if exists
+    if profile.image:
+        try:
+            # Resize image to 80x80 and place at (100, y-80)
+            img = ImageReader(profile.image.path)
+            p.drawImage(img, 100, y - 80, width=80, height=80)
+        except Exception as e:
+            print("Error loading image:", e)
+
+    # Shift text to the right if image is there
+    text_x = 200 if profile.image else 100
+
+    # Header: user info
+    p.drawString(text_x, y, f"Hello {user.first_name} {user.last_name}, This is your report")
+    y -= 20
+    p.drawString(text_x, y, f"Email: {user.email}")
+    y -= 20
+    p.drawString(text_x, y, f"Nationality: {profile.nationality}")
+    y -= 20
+    p.drawString(text_x, y, f"Address: {profile.address}")
+    y -= 20
+    p.drawString(text_x, y, f"CPR: {profile.cpr}")
+    y -= 40
+
+    # Module quiz scores
+    p.drawString(text_x, y, "Your Quiz Scores:")
+    y -= 20
+    for title, score in module_scores:
+        p.drawString(text_x + 20, y, f"{title}: {score}%")
+        y -= 20
+        if y < 50:
+            p.showPage()
+            y = 750
+
+    # Close PDF
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+
+    return FileResponse(buffer, as_attachment=True, filename=f'{user.first_name}_report.pdf')
+
