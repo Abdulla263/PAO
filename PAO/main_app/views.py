@@ -213,6 +213,7 @@ def calculator(request):
 
 
 
+@login_required
 def generate_pdf_view(request, user_id):
 
     # Profile is guaranteed to exist
@@ -290,3 +291,4 @@ def generate_pdf_view(request, user_id):
         as_attachment=True,
         filename=f'{user.first_name}_report.pdf'
     )
+
