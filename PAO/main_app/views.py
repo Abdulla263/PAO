@@ -8,13 +8,11 @@ from django.views.generic import ListView, DetailView
 from .models import Module, Profile, Quiz, Question, Answer, QuizAnswer , Note
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import FileResponse
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import HexColor, white, black
-from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader
 import io
-from datetime import datetime
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 
 # Create your views here.
 
@@ -217,124 +215,80 @@ def calculator(request):
 
 @login_required
 def generate_pdf_view(request, user_id):
+
+    # Profile is guaranteed to exist
     profile = Profile.objects.get(user__id=user_id)
     user = profile.user
 
+    # Fetch all modules
     modules = Module.objects.all().order_by("id")
 
+    # Prepare module scores (last quiz for this user)
     module_scores = []
     for module in modules:
-        quiz = Quiz.objects.filter(user=user, module=module).order_by('-timestamp').first()
+        quiz = Quiz.objects.filter(
+            user=user,
+            module=module
+        ).order_by('-timestamp').first()
+
         if quiz:
-            total = quiz.responses.count()
-            percentage = int((quiz.score / total) * 100) if total else 0
+            total_questions = quiz.responses.count()
+            percentage = int((quiz.score / total_questions) * 100) if total_questions > 0 else 0
         else:
             percentage = 0
+
         module_scores.append((module.id, module.title, percentage))
 
+    # Create PDF buffer
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
 
-    width, height = letter
+    y = 750
 
-    PRIMARY = HexColor("#17325A")
-    CARD_BG = HexColor("#DDD6CA")
-    TEXT_GRAY = HexColor("#374151")
-    MUTED_GRAY = HexColor("#6b7280")
-
-    # ================= TITLE (ABOVE HEADER) =================
-    p.setFillColor(TEXT_GRAY)
-    p.setFont("Helvetica-Bold", 14)
-    p.drawCentredString(
-        width / 2,
-        height - 40,
-        "Post-Arrival Orientation for Domestic Workers in the Kingdom of Bahrain"
-    )
-
-    y = height - 70
-
-    # ================= HEADER =================
-    p.setFillColor(PRIMARY)
-    p.rect(0, y - 80, width, 80, fill=1)
-
+    # Draw profile image if exists
     if profile.image:
         img = ImageReader(profile.image.path)
-        p.drawImage(img, 40, y - 70, width=60, height=60, mask='auto')
+        p.drawImage(img, 100, y - 80, width=80, height=80)
 
-    p.setFillColor(CARD_BG)
-    p.setFont("Helvetica-Bold", 16)
-    p.drawString(120, y - 35, f"{user.first_name} {user.last_name}")
-    p.setFont("Helvetica", 10)
-    p.drawString(120, y - 55, "User Progress Report")
+    # Shift text to the right if image exists
+    text_x = 200 if profile.image else 100
 
-    y -= 120
+    # Header: user info
+    p.drawString(text_x, y, f"Hello {user.first_name} {user.last_name}, This is your report")
+    y -= 20
+    p.drawString(text_x, y, f"Email: {user.email}")
+    y -= 20
+    p.drawString(text_x, y, f"Nationality: {profile.nationality}")
+    y -= 20
+    p.drawString(text_x, y, f"Address: {profile.address}")
+    y -= 20
+    p.drawString(text_x, y, f"CPR: {profile.cpr}")
+    y -= 40
 
-    # ================= USER INFO CARD =================
-    p.setFillColor(CARD_BG)
-    p.rect(40, y - 120, width - 80, 120, fill=1, stroke=0)
-
-    p.setFillColor(TEXT_GRAY)
-    p.setFont("Helvetica-Bold", 12)
-    p.drawString(60, y - 30, "User Information")
-
-    p.setFont("Helvetica", 10)
-    info = [
-        f"Email: {user.email}",
-        f"Nationality: {profile.nationality}",
-        f"Address: {profile.address}",
-        f"CPR: {profile.cpr}",
-    ]
-
-    iy = y - 55
-    for line in info:
-        p.drawString(60, iy, line)
-        iy -= 18
-
-    y -= 160
-
-    # ================= QUIZ SCORES =================
-    p.setFillColor(CARD_BG)
-    p.rect(40, y - 200, width - 80, 200, fill=1, stroke=0)
-
-    p.setFillColor(TEXT_GRAY)
-    p.setFont("Helvetica-Bold", 12)
-    p.drawString(60, y - 30, "Quiz Results")
-
-    p.setFont("Helvetica", 10)
-    sy = y - 60
+    # Module quiz scores
+    p.drawString(text_x, y, "Your Quiz Scores:")
+    y -= 20
 
     for module_id, title, score in module_scores:
-        p.drawString(70, sy, f"Module {module_id}: {title}")
-        p.drawRightString(width - 70, sy, f"{score}%")
-        sy -= 18
+        p.drawString(
+            text_x + 20,
+            y,
+            f"Module {module_id}: {title} — {score}%"
+        )
+        y -= 20
 
-        if sy < 80:
+        if y < 50:
             p.showPage()
-            sy = height - 100
+            y = 750
 
-    # ================= FOOTER =================
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    p.setFont("Helvetica", 8)
-    p.setFillColor(MUTED_GRAY)
-
-    p.drawCentredString(
-        width / 2,
-        50,
-        "This report is a computer-generated document created at the request of the user."
-    )
-    p.drawCentredString(
-        width / 2,
-        35,
-        f"Generated on: {timestamp}"
-    )
-
+    # Close PDF
     p.showPage()
     p.save()
-
     buffer.seek(0)
+
     return FileResponse(
         buffer,
         as_attachment=True,
-        filename=f"{user.first_name}_report.pdf"
+        filename=f'{user.first_name}_{user.last_name}_report.pdf'
     )
+
