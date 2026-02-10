@@ -13,7 +13,6 @@
     {% endif %}
 </div>
 
-
         <div class="user-info">
             <div class="user-name">{{ user.first_name }} {{ user.last_name }}</div>
             <div class="user-email">{{ user.email }}</div>
@@ -58,9 +57,8 @@
         <section class="progress-section">
             <div class="progress-header">
                 <h2 class="progress-title">Overall Progress
-
                 </h2>
-                <span class="progress-percentage">{{ total_progress }}% </span>
+                <span class="progress-percentage" style="margin-top: -25px; font-size: 30pt">{{ total_progress }}% </span>
             </div>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" style="width: {{ total_progress }}%;"></div>
@@ -69,7 +67,7 @@
             </form>
             <form method="post" action="{% url 'generate-pdf' user.id %}">
     {% csrf_token %}
-    <button class="btn btn-secondary btn-small btn-full" style="background-color: #DDD6CA; color: #17325A; margin-bottom: -1cm;" type="submit">Download Progress 📥</button>
+    <button class="btn btn-secondary btn-small btn-full" style="background-color: #DDD6CA; color: #17325A; margin-bottom: -1cm;" type="submit">Download Progress Report 📥</button>
 </form>
         </section>
 

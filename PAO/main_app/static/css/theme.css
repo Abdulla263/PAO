@@ -780,8 +780,8 @@ label {
     border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--shadow-lg);
-      display: flex;                      /* Use flexbox */
-    align-items: center;               /* Center items vertically */
+    display: flex;
+    align-items: center;
 }
 
 .module-header h2 {
@@ -1321,7 +1321,7 @@ label {
 
 /* ========== CALCULATOR STYLING ========== */
 .calculator-container {
-    max-width: 700px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1331,6 +1331,7 @@ label {
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-lg);
+    display: flex;
 }
 
 .calculator-header h1 {
@@ -1436,10 +1437,9 @@ label {
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
-@media (max-width: 1200px) {
     .dashboard-container {
-        grid-template-columns: 1fr 2fr 1fr;
-    }
+        grid-template-columns: 1fr 2.5fr 1.5fr;
+
 
     .modules-grid {
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
