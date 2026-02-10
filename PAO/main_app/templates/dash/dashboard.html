@@ -40,14 +40,9 @@
                 <button type="submit" class="btn btn-primary btn-small btn-full">Edit Profile</button>
             </form>
         </div>
-               <form method="post" action="{% url 'logout' %}" >
-                            {% csrf_token %}
-                            <button class="btn btn-secondary btn-small btn-full" type="submit">Logout</button>
-                        </form>
-                        <form method="post" action="{% url 'generate-pdf' user.id %}">
-    {% csrf_token %}
-    <button class="btn btn-secondary btn-small btn-full" type="submit">Download Progress</button>
-</form>
+            <form method="post" action="{% url 'logout' %}" >
+                    {% csrf_token %}
+                    <button class="btn btn-secondary btn-small btn-full" style="background-color: #DE2827; color: white; margin-bottom: -2cm;" type="submit">Logout</button>
     </aside>
 
     <!-- CENTER PANEL: Main Dashboard -->
@@ -62,12 +57,20 @@
         <!-- Progress Section -->
         <section class="progress-section">
             <div class="progress-header">
-                <h2 class="progress-title">Overall Progress</h2>
-                <span class="progress-percentage">{{ total_progress }}%</span>
+                <h2 class="progress-title">Overall Progress
+
+                </h2>
+                <span class="progress-percentage">{{ total_progress }}% </span>
             </div>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" style="width: {{ total_progress }}%;"></div>
+
             </div>
+            </form>
+            <form method="post" action="{% url 'generate-pdf' user.id %}">
+    {% csrf_token %}
+    <button class="btn btn-secondary btn-small btn-full" style="background-color: #DDD6CA; color: #17325A; margin-bottom: -1cm;" type="submit">Download Progress 📥</button>
+</form>
         </section>
 
         <!-- Modules Section -->

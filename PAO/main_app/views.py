@@ -289,6 +289,6 @@ def generate_pdf_view(request, user_id):
     return FileResponse(
         buffer,
         as_attachment=True,
-        filename=f'{user.first_name}_report.pdf'
+        filename=f'{user.first_name}_{user.last_name}_report.pdf'
     )
 
