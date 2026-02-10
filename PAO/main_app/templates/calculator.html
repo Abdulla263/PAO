@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <div class="calculator-container">
     <div class="calculator-header">
-        <h1>Indemnity Calculator</h1>
-        <p><strong>What is indemnity?</strong></p>
-        <p>Indemnity is extra money you receive when you leave your employer. It is based on your last salary and how long you worked for your employer.</p>
-        <div class="important-note">
-            <p><strong>💰 Indemnity is added to your wage when you leave your job.</strong></p>
+        <div>
+              <img style="max-width:220px; padding-right: 1cm" alt="Module Icon" src={% static 'images/calculator.png' %}>
+        </div>
+        <div>
+            <h1>Indemnity Calculator</h1>
+            <p><strong>What is indemnity?</strong></p>
+            <p>Indemnity is extra money you receive when you leave your employer. It is based on your last salary and how long you worked for your employer.</p>
+            <div class="important-note">
+                <p><strong>💰 Indemnity is added to your wage when you leave your job.</strong></p>
+            </div>
         </div>
     </div>
 
