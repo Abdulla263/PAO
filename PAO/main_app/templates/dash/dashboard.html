@@ -9,7 +9,7 @@
     {% if user.profile.image %}
         <img src="{{ user.profile.image.url }}" alt="Profile Image">
     {% else %}
-        {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
+    {{ user.first_name.0|upper }}{{ user.last_name.0|upper }}
     {% endif %}
 </div>
 
