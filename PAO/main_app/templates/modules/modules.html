@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <h1>Modules</h1>
 {% for module in modules %}
   <div class="module-card">
-    <a href="{% url 'detail' module.id %}">
-    <h2>Module {{ module.id }}: <b>{{ module.title }}</b></h2></a>
-    <p>{{ module.description }}</p>
+    <div class="module-content">
+      <img class="module-icon" src="{% static 'images/module_icons/m_icon' %}{{ forloop.counter }}.png" alt="Icon for Module {{ module.title }}">
+      <div class="module-text">
+        <a href="{% url 'detail' module.id %}">
+          <h2>Module {{ module.id }}: <b>{{ module.title }}</b></h2>
+        </a>
+        <p>{{ module.description }}</p>
+      </div>
+    </div>
   </div>
   <br>
 {% endfor %}
-
 {% endblock %}
