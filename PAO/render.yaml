@@ -1,5 +1,5 @@
 databases:
-  - name: pao_bahrain  
+  - name: pao_bahrain
     plan: free
     databaseName: pao_bahrain
     user: mysite
@@ -9,7 +9,7 @@ services:
     plan: free
     name: pao_bahrain
     runtime: python
-    buildCommand: './build.sh'
+    buildCommand: '/PAO/PAO/build.sh'
     startCommand: 'python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker'
     envVars:
       - key: DATABASE_URL
